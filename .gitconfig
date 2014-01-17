@@ -1,0 +1,34 @@
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    grep = auto
+    color = auto
+    ui = auto
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
+[push]
+    default = current
+[alias]
+    st = status
+    co = checkout
+    ci = commit -v
+    cm = commit -m
+    di = diff
+    br = branch
+    puhs = push
+    psuh = push
+    pus = push
+    puh = push
+    pr = pull --rebase
+    undo = reset --soft HEAD^
+
+    today = log --oneline --since='12 hour ago'
+    graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+    log = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
+    list = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
+
+[user]
+    name = masayoshi okabe
+    email = hogehoge@mail
