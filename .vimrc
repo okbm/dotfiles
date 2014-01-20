@@ -77,12 +77,15 @@ set incsearch
 
 "検索にハイライト
 set hlsearch
-"Escの2回押しでハイライト消去
 
+"Escの2回押しでハイライト消去
 nmap <Esc><Esc> :nohlsearch<CR>
 
 "検索時に大文字小文字を分類しない
 set ignorecase
+
+"検索をファイルの先頭へループしない
+set nowrapscan
 
 "括弧のハイライトを消す"
 set showmatch           " 対応する括弧などをハイライト表示する
