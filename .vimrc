@@ -1,6 +1,9 @@
 set nocompatible
 filetype off
 
+" filetype plugin on
+filetype indent on
+
 " neoBundle
 " mkdir -p ~/.vim/bundle
 " git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
@@ -22,15 +25,14 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'taichouchou2/html5.vim'
-NeoBundle 'taichouchou2/vim-javascript' " jQuery syntax追加
-NeoBundle 'kchmck/vim-coffee-script'
-"NeoBundle 'AtsushiM/sass-compile.vim'
+NeoBundle 'taichouchou2/vim-javascript'
 NeoBundle 'current-func-info.vim'
-NeoBundle 'joonty/vdebug'
+" NeoBundle 'joonty/vdebug'
 NeoBundle 'thinca/vim-quickrun'
-
-filetype plugin on
-filetype indent on
+NeoBundle 'Shougo/Vimfiler'
+" NeoBundle 'shawncplus/php.vim'
+NeoBundle 'mattn/benchvimrc-vim'
+NeoBundle 'yuroyoro/smooth_scroll.vim'
 
 "色の設定
 syntax on
@@ -95,6 +97,9 @@ set matchtime=3         " 対応括弧のハイライト表示を3秒にする
 set matchpairs& matchpairs+=<:>
 "
 hi Search guibg=Yellow ctermbg=Yellow
+
+" スクロール高速
+set lazyredraw
 
 "vimrcの読み込み
 :command! Vimrc :e ~/.vimrc
