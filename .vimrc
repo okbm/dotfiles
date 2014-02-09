@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-" filetype plugin on
+"filetype plugin on
 filetype indent on
 
 " neoBundle
@@ -33,12 +33,22 @@ NeoBundle 'Shougo/Vimfiler'
 " NeoBundle 'shawncplus/php.vim'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
+NeoBundle 'altercation/vim-colors-solarized'
 
 "色の設定
-syntax on
-hi Search term=reverse ctermfg=black
-hi Pmenu ctermfg=black
-hi PmenuSel ctermfg=black
+"syntax on
+"hi Search term=reverse ctermfg=black
+"hi Pmenu ctermfg=black
+"hi PmenuSel ctermfg=black
+
+" item2用
+" download https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
+syntax enable
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+
 
 "行番号の表示/非表示
 set nu
