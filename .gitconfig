@@ -21,6 +21,7 @@
     psuh = push
     pus = push
     puh = push
+    pl = !git pull && git submodule update --init
     pr = pull --rebase
     undo = reset --soft HEAD^
 
@@ -28,7 +29,16 @@
     graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
     log = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
     list = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
-
+    pl = !git pull && git submodule update --init
+    brr = browse-remote
 [user]
-    name = masayoshi okabe
-    email = hogehoge@mail
+    name = Masayoshi Okabe
+    email = 
+[github]
+    user = okbm
+[web]
+    browser = google-chrome
+[browse-remote "github.com"]
+    top = https://{host}/{path}
+    ref = https://{host}/{path}/tree/{short_ref}
+    rev = https://{host}/{path}/commit/{commit}
