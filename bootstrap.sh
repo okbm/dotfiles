@@ -36,6 +36,6 @@ fi
 # tmux
 if [ ! -d ~/.solarized ]; then
     mkdir ~/.solarized
-    cd .solarized
+    cd ~/.solarized
     git clone https://github.com/seebi/tmux-colors-solarized.git
 fi
