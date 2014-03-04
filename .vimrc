@@ -25,8 +25,8 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'taichouchou2/html5.vim'
-" NeoBundle 'taichouchou2/vim-javascript'
-NeoBundle 'current-func-info.vim'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'current-funa-info.vim'
 " NeoBundle 'joonty/vdebug'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Shougo/Vimfiler'
@@ -378,6 +378,8 @@ let python_highlight_all = 1
 autocmd FileType python set omnifunc=pythoncomplete
 autocmd FileType python set omnifunc=pysmell
 
+" javascript
+autocmd filetype coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 " funtion名取得関数
 function! GetProgramDefineFunc()
