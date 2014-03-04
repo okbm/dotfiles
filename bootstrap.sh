@@ -39,3 +39,6 @@ if [ ! -d ~/.solarized ]; then
     cd .solarized
     git clone https://github.com/seebi/tmux-colors-solarized.git
 fi
+
+cd
+source .bashrc
