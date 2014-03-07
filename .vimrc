@@ -34,6 +34,7 @@ NeoBundle 'Shougo/Vimfiler'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'Lokaltog/vim-powerline'
 
 "色の設定
 "syntax on
