@@ -26,15 +26,13 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'current-funa-info.vim'
-" NeoBundle 'joonty/vdebug'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Shougo/Vimfiler'
-" NeoBundle 'shawncplus/php.vim'
+"NeoBundle 'Shougo/Vimfiler'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
+" NeoBundle 'plasticboy/vim-markdown'
 
 "色の設定
 "syntax on
@@ -337,8 +335,8 @@ function! ErrorCheckStatusline()
        let g:is_error = 1
        "let g:status = split(l:tmp, '\n')
        let g:status = split(l:tmp, ' in ')
-       silent exec 'set statusline=%{g:status[0]}%=%c,%l%11p%%'
-       silent exec l:ecol
+       "silent exec 'set statusline=%{g:status[0]}%=%c,%l%11p%%'
+       "silent exec l:ecol
        return
     else
        let g:is_error = 0
@@ -363,8 +361,8 @@ function! ErrorCheckStatusline()
   endif
 
   " 通常のステータスラインを表示
-  silent exec 'set statusline=%F,\ \ %{GetFunctionName()}%=%l/%L%11p%%'
-  silent exec g:ncol
+  "silent exec 'set statusline=%F,\ \ %{GetFunctionName()}%=%l/%L%11p%%'
+  "silent exec g:ncol
   return
 endfunction
 
