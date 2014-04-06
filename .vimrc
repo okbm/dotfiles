@@ -279,7 +279,7 @@ nnoremap <silent> ug :<C-u>Unite grep::-iHRn -direction=botright <CR>
 
 "browserload-mac
 " リロード後に戻ってくるアプリ 変更してください
-let g:returnApp = "Terminal"
+let g:returnApp = "iTerm"
 nmap <Space>bc :ChromeReloadStart<CR>
 nmap <Space>bC :ChromeReloadStop<CR>
 nmap <Space>bf :FirefoxReloadStart<CR>
