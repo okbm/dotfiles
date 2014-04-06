@@ -41,4 +41,4 @@ if [ ! -d ~/.solarized ]; then
 fi
 
 cd
-source .bashrc
+source ~/.bashrc
