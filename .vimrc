@@ -47,6 +47,7 @@ set background=dark
 colorscheme solarized
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
+set term=screen-256color
 
 
 "行番号の表示/非表示
@@ -301,6 +302,9 @@ autocmd BufNewFile,BufRead *.php set shiftwidth=4
 autocmd BufNewFile,BufRead *.php set softtabstop=4
 autocmd BufNewFile,BufRead *.php set tabstop=4
 
+autocmd BufNewFile,BufRead *.json set shiftwidth=2
+autocmd BufNewFile,BufRead *.json set softtabstop=2
+autocmd BufNewFile,BufRead *.json set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
