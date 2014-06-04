@@ -12,7 +12,6 @@ alias tail_app='tail -F /var/log/apache2/access.log'
 alias tail_err='tail -F /var/log/apache2/error.log'
 
 export PS1="\u@\W\\$ "
-export PS1="${PS1}[\$(__git_ps1 \"%s\")]\\$ "
 
 cdls ()
 {
@@ -20,4 +19,10 @@ cdls ()
 }
 alias cd="cdls"
 
-source ~/.git-completion.bash
+# git
+if [ -f ~/.git-completion.bash ] ; then
+    source ~/.git-completion.bash-
+    source ~/.git-prompt.sh
+    GIT_PS1_SHOWDIRTYSTATE=true
+    PS1="${PS1}[\$(__git_ps1 \"%s\")]\\$ "
+fi
