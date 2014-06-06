@@ -3,7 +3,7 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTCONTROL=ignoredups
-export HISTIGNORE=ll:ls:cd:history
+export HISTIGNORE=ll:ls:cd:la:history
 
 alias la="ls -A"
 alias ll='ls -lG'
@@ -21,7 +21,7 @@ alias cd="cdls"
 
 # git
 if [ -f ~/.git-completion.bash ] ; then
-    source ~/.git-completion.bash-
+    source ~/.git-completion.bash
     source ~/.git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=true
     PS1="${PS1}[\$(__git_ps1 \"%s\")]\\$ "

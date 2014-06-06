@@ -32,7 +32,7 @@
     pl = !git pull && git submodule update --init
     brr = browse-remote
 [user]
-    name = Masayoshi Okabe
+    name = okbm
     email = 
 [github]
     user = okbm
