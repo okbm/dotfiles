@@ -40,6 +40,8 @@ if [ ! -d ~/.solarized ]; then
     git clone https://github.com/seebi/tmux-colors-solarized.git
 fi
 
+cd
+
 # git
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash 
 mv git-completion.bash .git-completion.bash
