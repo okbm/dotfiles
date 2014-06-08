@@ -6,8 +6,7 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE=ll:ls:cd:la:history
 
 # ls
-#export TERM=xterm-color
-export LSCOLORS=gxfxcxdxbxegedabagacad
+export LS_COLORS="di=00;34:ln=00;35:so=00;32:pi=01;33:ex=00;31:bd=00;34"
 alias la="ls -AF --color=auto"
 alias ll='ls -lGF --color=auto'
 alias ls='ls -GF --color=auto'
