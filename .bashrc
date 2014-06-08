@@ -5,9 +5,10 @@ export HISTFILESIZE=10000
 export HISTCONTROL=ignoredups
 export HISTIGNORE=ll:ls:cd:la:history
 
-alias la="ls -A"
-alias ll='ls -lG'
-alias ls='ls -G'
+#export TERM=xterm-color
+alias la="ls -AF --color=auto"
+alias ll='ls -lGF --color=auto'
+alias ls='ls -GF --color=auto'
 alias tail_app='tail -F /var/log/apache2/access.log'
 alias tail_err='tail -F /var/log/apache2/error.log'
 
