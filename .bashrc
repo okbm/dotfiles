@@ -34,3 +34,9 @@ fi
 # other
 alias tail_app='tail -F /var/log/apache2/access.log'
 alias tail_err='tail -F /var/log/apache2/error.log'
+
+# command
+alias findphp="find . -type f -name "*.php" | xargs grep --color -i "
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
