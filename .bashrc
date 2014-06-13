@@ -1,5 +1,5 @@
 # setting
-export LANG=ja_JP.utf8
+export LANG=ja_JP.UTF-8
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTCONTROL=ignoredups
@@ -10,6 +10,7 @@ export LS_COLORS="di=00;34:ln=00;35:so=00;32:pi=01;33:ex=00;31:bd=00;34"
 alias la="ls -AF --color=auto"
 alias ll='ls -lGF --color=auto'
 alias ls='ls -GF --color=auto'
+alias vi='vim'
 
 # cd
 shopt -s cdspell
@@ -34,6 +35,11 @@ fi
 # other
 alias tail_app='tail -F /var/log/apache2/access.log'
 alias tail_err='tail -F /var/log/apache2/error.log'
+
+# item2の設定でTab titleのチェック全部外す
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
 
 # command
 alias findphp="find . -type f -name "*.php" | xargs grep --color -i "
