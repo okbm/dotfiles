@@ -14,12 +14,17 @@ if has('vim_starting')
 endif
 " originalrepos on github
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+  \ }
 NeoBundle 'VimClojure'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'vim-scripts/The-NERD-tree'
-NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'szw/vim-tags'
