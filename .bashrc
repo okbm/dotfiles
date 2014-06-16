@@ -46,3 +46,4 @@ alias findphp="find . -type f -name "*.php" | xargs grep --color -i "
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias restart='sudo /etc/init.d/apache2 restart'
