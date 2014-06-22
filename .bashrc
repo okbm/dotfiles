@@ -15,7 +15,8 @@ alias vi='vim'
 # cd
 shopt -s cdspell
 shopt -u histappend
-export PS1="\u@\W\\$ "
+#export PS1="\u@\W\\$ "
+export PS1="\e[0;31m[\e[0;32m\u@\w\e[0;31m]\$\e[0m "
 set show-all-if-ambiguous on
 
 cdls ()
