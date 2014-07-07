@@ -33,6 +33,8 @@ if [ -f ~/.git-completion.bash ] ; then
     PS1="${PS1}[\$(__git_ps1 \"%s\")]\\$ "
 fi
 
+source .tmuxinator.bash
+
 # other
 alias tail_app='tail -F /var/log/apache2/access.log'
 alias tail_err='tail -F /var/log/apache2/error.log'

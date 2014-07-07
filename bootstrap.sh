@@ -40,7 +40,27 @@ if [ ! -d ~/.solarized ]; then
     git clone https://github.com/seebi/tmux-colors-solarized.git
 fi
 
-cd
+# tmuxinator
+cd $HOME
+sudo gem install tmuxinator
+wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash tmuxinator.bash
+mv tmuxinator.bash .tmuxinator.bash
+
+echo 'export EDITOR=/usr/bin/vim' >> ${HOME}/.bashrc
+
+# mux work で実行
+cat << EOF > ~/.tmuxinator/work.yml
+# ~/.tmuxinator/work.yml
+
+name: work
+root: ~/
+
+windows:
+  - work:
+     - vim
+  - vagrant:
+      - cd ~/work/vagrant/chef_solo_berkshelf
+EOF
 
 # git
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash 
@@ -49,6 +69,6 @@ mv git-completion.bash .git-completion.bash
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 mv git-prompt.sh .git-prompt.sh
 
-cd
+cd $HOME
 source .bashrc
 
