@@ -25,10 +25,25 @@ setopt extended_glob
 # 入力したコマンドがすでにコマンド履歴に含まれる場合、履歴から古いほうのコマンドを削除する
 # コマンド履歴とは今まで入力したコマンドの一覧のことで、上下キーでたどれる
 setopt hist_ignore_all_dups
+# 履歴ファイルの保存先
+
+export HISTFILE=${HOME}/.zsh_history
+
+# メモリに保存される履歴の件数
+export HISTSIZE=1000
+
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=100000
 
 # コマンドがスペースで始まる場合、コマンド履歴に追加しない
 # 例： <Space>echo hello と入力
 setopt hist_ignore_space
+
+## ^Dでログアウトしない。
+setopt ignoreeof
+
+## バックグラウンドジョブが終了したらすぐに知らせる。
+setopt no_tify
 
 # <Tab> でパス名の補完候補を表示したあと、
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
@@ -40,14 +55,20 @@ zstyle ':completion:*:default' menu select=1
 # こうすると、 Ctrl-W でカーソル前の1単語を削除したとき、 / までで削除が止まる
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
+# -------------------------------------
 # alias
+# -------------------------------------
+
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias la="ls -AF "
 alias ll='ls -lGF'
 alias ls='ls -GF '
 
+# -------------------------------------
 # プロンプト
+# -------------------------------------
+
 # gitのブランチや状態の表示
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
@@ -75,6 +96,22 @@ SUSHI=$'\U1F363 '   # スシ
 PROMPT='
 %F{yellow}[%~]%f `vcs_echo`
 %(?.${SUSHI}.%F{red}$%f) '
+
+# -------------------------------------
+# その他
+# -------------------------------------
+
+# cdしたあとで、自動的に ls する
+function chpwd() { ls }
+
+# item2の関数
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
+
+# -------------------------------------
+# ツール
+# -------------------------------------
 
 # peco
 # brew tap peco/peco
