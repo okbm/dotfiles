@@ -43,10 +43,8 @@ fi
 # tmuxinator
 cd $HOME
 sudo gem install tmuxinator
-wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash tmuxinator.bash
-mv tmuxinator.bash .tmuxinator.bash
-
-echo 'export EDITOR=/usr/bin/vim' >> ${HOME}/.bashrc
+curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh
+mv tmuxinator.zsh .tmuxinator.zsh
 
 # mux work で実行
 cat << EOF > ~/.tmuxinator/work.yml

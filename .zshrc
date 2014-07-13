@@ -1,5 +1,11 @@
+# 環境設定周り
 export LANG=ja_JP.UTF-8
 export EDITOR=/usr/bin/vim
+
+export GEM_HOME=/usr/bin/gem
+export PATH=/usr/local/bin:$PATH
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+EDITOR=/usr/bin/vim
 
 # Vi ライクな操作が好みであれば `bindkey -v` とする
 bindkey -e
@@ -108,6 +114,9 @@ function chpwd() { ls }
 function title {
     echo -ne "\033]0;"$*"\007"
 }
+
+# tmuxinatorを有効にする
+source ~/.tmuxinator.zsh
 
 # -------------------------------------
 # ツール
