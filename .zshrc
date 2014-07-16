@@ -70,6 +70,7 @@ alias ....='cd ../../..'
 alias la="ls -AF "
 alias ll='ls -lGF'
 alias ls='ls -GF '
+alias fp="find . -type f -name "*.php" | xargs grep --color -i "
 
 # -------------------------------------
 # プロンプト
@@ -121,11 +122,7 @@ source ~/.tmuxinator.zsh
 # -------------------------------------
 # ツール
 # -------------------------------------
-
 # peco
-# brew tap peco/peco
-# brew install peco
-# でインストール
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then

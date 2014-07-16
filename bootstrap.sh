@@ -60,13 +60,21 @@ windows:
       - cd ~/work/vagrant/chef_solo_berkshelf
 EOF
 
-# git
-wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash 
-mv git-completion.bash .git-completion.bash
+# bashでgitのブランチを表示する
+# wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash 
+# mv git-completion.bash .git-completion.bash
 
-wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-mv git-prompt.sh .git-prompt.sh
+# wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+# mv git-prompt.sh .git-prompt.sh
+
+# brew
+if [ `uname` = "Darwin" ]; then
+    brew install hub
+    brew install tig
+    brew tap peco/peco
+    brew install peco
+fi
 
 cd $HOME
-source .bashrc
+source .zshrc
 
