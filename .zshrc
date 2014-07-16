@@ -70,7 +70,7 @@ alias ....='cd ../../..'
 alias la="ls -AF "
 alias ll='ls -lGF'
 alias ls='ls -GF '
-alias fp="find . -type f -name "*.php" | xargs grep --color -i "
+alias fp='find . -type f -name "*.php" | xargs grep --color -i '
 
 # -------------------------------------
 # プロンプト
