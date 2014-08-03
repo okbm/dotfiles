@@ -23,7 +23,7 @@ do
     fi
 done
 
-# Vim
+# vim
 mkdir -p ~/.vim/bundle
 if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
     git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
@@ -61,11 +61,11 @@ windows:
 EOF
 
 # bashでgitのブランチを表示する
-# wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash 
-# mv git-completion.bash .git-completion.bash
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash 
+mv git-completion.bash .git-completion.bash
 
-# wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-# mv git-prompt.sh .git-prompt.sh
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+mv git-prompt.sh .git-prompt.sh
 
 # brew
 if [ `uname` = "Darwin" ]; then
@@ -76,5 +76,5 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 cd $HOME
-source .zshrc
+source .bashrc
 

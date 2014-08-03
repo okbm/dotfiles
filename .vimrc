@@ -5,9 +5,6 @@ filetype off
 filetype indent on
 
 " neoBundle
-" mkdir -p ~/.vim/bundle
-" git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-" git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
     call neobundle#rc(expand('~/.vim/bundle/'))
