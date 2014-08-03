@@ -43,6 +43,9 @@ fi
 # tmuxinator
 cd $HOME
 sudo gem install tmuxinator
+curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash
+mv tmuxinator.bash .tmuxinator.bash
+
 curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh
 mv tmuxinator.zsh .tmuxinator.zsh
 
@@ -61,7 +64,7 @@ windows:
 EOF
 
 # bashでgitのブランチを表示する
-wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash 
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 mv git-completion.bash .git-completion.bash
 
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
