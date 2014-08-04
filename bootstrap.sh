@@ -40,6 +40,10 @@ if [ ! -d ~/.solarized ]; then
     git clone https://github.com/seebi/tmux-colors-solarized.git
 fi
 
+# peco
+mkdir -p ~/.peco
+cp config.json ~/.peco/
+
 # tmuxinator
 cd $HOME
 sudo gem install tmuxinator
