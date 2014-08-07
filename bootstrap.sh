@@ -85,6 +85,7 @@ if [ `uname` = "Darwin" ]; then
     brew tap peco/peco
     brew install peco
     brew install mercurial
+    brew install autojump
     brew install go
     go get github.com/motemen/ghq
 fi
