@@ -74,14 +74,19 @@ mv git-completion.bash .git-completion.bash
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 mv git-prompt.sh .git-prompt.sh
 
+cd $HOME
+source .bashrc
+source .zshrc
+
 # brew
 if [ `uname` = "Darwin" ]; then
     brew install hub
     brew install tig
     brew tap peco/peco
     brew install peco
+    brew install mercurial
+    brew install go
+    go get github.com/motemen/ghq
 fi
 
-cd $HOME
-source .bashrc
 

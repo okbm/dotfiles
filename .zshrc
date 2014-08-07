@@ -71,6 +71,8 @@ alias la="ls -AF "
 alias ll='ls -lGF'
 alias ls='ls -GF '
 alias fp='find . -type f -name "*.php" | xargs grep --color -i '
+alias glist='cd $(ghq list -p | peco)'
+alias gopen='gh-open $(ghq list -p | peco)'
 
 # -------------------------------------
 # プロンプト
@@ -138,3 +140,10 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+# go
+if [ -x "`which go`" ]; then
+      export GOROOT=`go env GOROOT`
+      export GOPATH=$HOME/.go
+      export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
