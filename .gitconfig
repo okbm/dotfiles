@@ -31,6 +31,7 @@
     #log = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
     list = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
     pl = !git pull && git submodule update --init
+    see = browse
     brr = browse-remote
 [user]
     name = okbm
