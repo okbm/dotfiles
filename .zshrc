@@ -147,3 +147,13 @@ if [ -x "`which go`" ]; then
       export GOPATH=$HOME/.go
       export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
+
+# ghq
+function ghq-list() {
+    cd $(ghq list -p | peco)
+    zle clear-screen
+}
+zle -N ghq-list
+bindkey '^e' ghq-list
+
+

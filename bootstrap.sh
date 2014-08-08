@@ -88,6 +88,8 @@ if [ `uname` = "Darwin" ]; then
     brew install autojump
     brew install go
     go get github.com/motemen/ghq
+    go get github.com/sugyan/ttygif
+    brew install ttyrec
 fi
 
 
