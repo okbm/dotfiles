@@ -92,4 +92,23 @@ if [ `uname` = "Darwin" ]; then
     brew install ttyrec
 fi
 
+# gem
+if [ -x "`which gem`" ]; then
+    wget http://production.cf.rubygems.org/rubygems/rubygems-2.4.1.zip
+    unzip rubygems-2.4.1.zip && rm rubygems-2.4.1.zip
+    cd rubygems-2.4.1
+    sudo ruby setup.rb
+
+    # update
+    gem install rubygems-update
+    update_rubygems
+    gem update
+
+    gem install tmuxinator
+    gem install jdoc
+    gem install bundle
+    gem install chef
+    gem install sunzi
+
+fi
 
