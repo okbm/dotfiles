@@ -25,14 +25,6 @@ cdls ()
 }
 alias cd="cdls"
 
-# git
-if [ -f ~/.git-completion.bash ] ; then
-    source ~/.git-completion.bash
-    source ~/.git-prompt.sh
-    GIT_PS1_SHOWDIRTYSTATE=true
-    PS1="${PS1}[\$(__git_ps1 \"%s\")]\\$ "
-fi
-
 source .tmuxinator.bash
 
 # other
@@ -50,3 +42,11 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias restart='sudo /etc/init.d/apache2 restart'
+
+# git
+if [ -f ~/.git-completion.bash ] ; then
+    source ~/.git-completion.bash
+    source ~/.git-prompt.sh
+    GIT_PS1_SHOWDIRTYSTATE=true
+    PS1="${PS1}[\$(__git_ps1 \"%s\")]\\"\n"$ "
+fi

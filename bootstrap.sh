@@ -74,10 +74,6 @@ mv git-completion.bash .git-completion.bash
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 mv git-prompt.sh .git-prompt.sh
 
-cd $HOME
-source .bashrc
-source .zshrc
-
 # brew
 if [ `uname` = "Darwin" ]; then
     brew install hub
@@ -93,7 +89,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 # gem
-if [ -x "`which gem`" ]; then
+if [ ! -x "`which gem`" ]; then
     wget http://production.cf.rubygems.org/rubygems/rubygems-2.4.1.zip
     unzip rubygems-2.4.1.zip && rm rubygems-2.4.1.zip
     cd rubygems-2.4.1
@@ -104,11 +100,15 @@ if [ -x "`which gem`" ]; then
     update_rubygems
     gem update
 
-    gem install tmuxinator
-    gem install jdoc
-    gem install bundle
-    gem install chef
-    gem install sunzi
+    gem install bundler --no-ri --no-rdoc
+    cp $SRC/Gemfile $HOME
+    cd HOME
+    bundle install --path vendor/bundle
+    # ex) bundle exec jdoc
 
 fi
+
+cd $HOME
+source .bashrc
+source .zshrc
 
