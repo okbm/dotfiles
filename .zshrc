@@ -154,6 +154,6 @@ function ghq-list() {
     zle clear-screen
 }
 zle -N ghq-list
-bindkey '^e' ghq-list
+bindkey '^g' ghq-list
 
 
