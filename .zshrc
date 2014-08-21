@@ -156,4 +156,4 @@ function ghq-list() {
 zle -N ghq-list
 bindkey '^g' ghq-list
 
-
+source .zsh_alias
