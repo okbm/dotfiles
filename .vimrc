@@ -3,6 +3,7 @@ filetype off
 
 "filetype plugin on
 filetype indent on
+filetype plugin on
 
 " neoBundle
 if has('vim_starting')
@@ -34,6 +35,7 @@ NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'scrooloose/syntastic'
 " NeoBundle 'plasticboy/vim-markdown'
 
 "色の設定
@@ -350,7 +352,8 @@ function! ErrorCheckStatusline()
 
 
   " チェックを実行(python)
-  elseif &filetype == "python"
+  " let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+  elseif &filetype == "py"
     let l:tmp = system("pyflakes ".bufname(""))
 
     " エラーがあった場合
@@ -367,8 +370,8 @@ function! ErrorCheckStatusline()
   endif
 
   " 通常のステータスラインを表示
-  "silent exec 'set statusline=%F,\ \ %{GetFunctionName()}%=%l/%L%11p%%'
-  "silent exec g:ncol
+  silent exec 'set statusline=%F,\ \ %{GetFunctionName()}%=%l/%L%11p%%'
+  silent exec g:ncol
   return
 endfunction
 
@@ -385,6 +388,7 @@ autocmd BufNewFile,BufRead *.yml..mixi set filetype=yaml
 let python_highlight_all = 1
 autocmd FileType python set omnifunc=pythoncomplete
 autocmd FileType python set omnifunc=pysmell
+
 
 " javascript
 autocmd filetype coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
