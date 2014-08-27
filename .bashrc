@@ -50,3 +50,7 @@ if [ -f ~/.git-completion.bash ] ; then
     GIT_PS1_SHOWDIRTYSTATE=true
     PS1="${PS1}[\$(__git_ps1 \"%s\")]\\"\n"$ "
 fi
+
+if [ -f $HOME/local/python-3.4/bin ] ; then
+    export PATH=$HOME/local/python-3.4/bin:$PATH
+fi
