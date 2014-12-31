@@ -5,7 +5,7 @@ export EDITOR=/usr/bin/vim
 export GEM_HOME=/usr/bin/gem
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
+export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
 EDITOR=/usr/bin/vim
 
 # Vi ライクな操作が好みであれば `bindkey -v` とする
@@ -68,9 +68,9 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias la="ls -AF --color"
-alias ll='ls -lGF --color'
-alias ls='ls -GF --color'
+alias la="ls -AF "
+alias ll='ls -lGF'
+alias ls='ls -GF '
 alias fp='find . -type f -name "*.php" | xargs grep --color -i '
 alias glist='cd $(ghq list -p | peco)'
 alias gopen='gh-open $(ghq list -p | peco)'
@@ -80,48 +80,32 @@ alias gopen='gh-open $(ghq list -p | peco)'
 # -------------------------------------
 
 # gitのブランチや状態の表示
-
-    autoload -Uz vcs_info
-    zstyle ':vcs_info:*' enable git svn
-    zstyle ':vcs_info:*' max-exports 6 # formatに入る変数の最大数
-    zstyle ':vcs_info:git:*' check-for-changes true
-    zstyle ':vcs_info:git:*' formats '%b@%r' '%c' '%u'
-    zstyle ':vcs_info:git:*' actionformats '%b@%r|%a' '%c' '%u'
-    setopt prompt_subst
-    function vcs_echo {
-        local st branch color
-        STY= LANG=en_US.UTF-8 vcs_info
-        st=`git status 2> /dev/null`
-        if [[ -z "$st" ]]; then return; fi
-        branch="$vcs_info_msg_0_"
-        if   [[ -n "$vcs_info_msg_1_" ]]; then color=${fg[green]} #staged
-        elif [[ -n "$vcs_info_msg_2_" ]]; then color=${fg[red]} #unstaged
-        elif [[ -n `echo "$st" | grep "^Untracked"` ]]; then color=${fg[blue]} # untracked
-        else color=${fg[cyan]}
-        fi
-        echo "%{$color%}(%{$branch%})%{$reset_color%}" | sed -e s/@/"%F{yellow}@%f%{$color%}"/
-    }
-
-case ${OSTYPE} in
-    darwin*)
-        # Mac
-        SUSHI=$'\U1F363 '   # スシ
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' max-exports 6 # formatに入る変数の最大数
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats '%b@%r' '%c' '%u'
+zstyle ':vcs_info:git:*' actionformats '%b@%r|%a' '%c' '%u'
+setopt prompt_subst
+function vcs_echo {
+    local st branch color
+    STY= LANG=en_US.UTF-8 vcs_info
+    st=`git status 2> /dev/null`
+    if [[ -z "$st" ]]; then return; fi
+    branch="$vcs_info_msg_0_"
+    if   [[ -n "$vcs_info_msg_1_" ]]; then color=${fg[green]} #staged
+    elif [[ -n "$vcs_info_msg_2_" ]]; then color=${fg[red]} #unstaged
+    elif [[ -n `echo "$st" | grep "^Untracked"` ]]; then color=${fg[blue]} # untracked
+    else color=${fg[cyan]}
+    fi
+    echo "%{$color%}(%{$branch%})%{$reset_color%}" | sed -e s/@/"%F{yellow}@%f%{$color%}"/
+}
+# macしか使えん気がする…
+SUSHI=$'\U1F363 '   # スシ
 
 PROMPT='
 %F{yellow}[%~]%f `vcs_echo`
 %(?.${SUSHI}.%F{red}$%f) '
-
-        ;;
-    linux*)
-        #Linux
-        # PS1="[${USER}@$%1~]%(!.#.$) " # Linux bashと同じ形式
-
-PROMPT='
-%F{yellow}[%~]%f `vcs_echo`
-%(?.$.%F{red}$%f) '
-        ;;
-esac
-
 
 # -------------------------------------
 # その他
@@ -185,6 +169,12 @@ zle -N peco-git-recent-all-branches
 
 bindkey '^b^r' peco-git-recent-branches
 bindkey '^br' peco-git-recent-all-branches
+
+# brew install zsh-completions
+if [ -e /usr/local/share/zsh-completions ]; then
+        fpath=(/usr/local/share/zsh-completions $fpath)
+fi
+
 # go
 if [ -x "`which go`" ]; then
       export GOROOT=`go env GOROOT`
