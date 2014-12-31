@@ -172,14 +172,14 @@ bindkey '^br' peco-git-recent-all-branches
 
 # brew install zsh-completions
 if [ -e /usr/local/share/zsh-completions ]; then
-        fpath=(/usr/local/share/zsh-completions $fpath)
+    fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
 fi
 
 # go
 if [ -x "`which go`" ]; then
-      export GOROOT=`go env GOROOT`
-      export GOPATH=$HOME/.go
-      export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+    export GOROOT=`go env GOROOT`
+    export GOPATH=$HOME/.go
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
 # ghq
