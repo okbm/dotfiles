@@ -46,6 +46,9 @@ export SAVEHIST=100000
 # 例： <Space>echo hello と入力
 setopt hist_ignore_space
 
+# 同一ホストの履歴を共有
+setopt share_history
+
 ## ^Dでログアウトしない。
 setopt ignoreeof
 
