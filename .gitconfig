@@ -33,6 +33,7 @@
     pl = !git pull && git submodule update --init
     see = browse
     brr = browse-remote
+    clean-marged = branch --merged | grep -v '^*' | xargs git branch -d
 [user]
     name = okbm
     email = freezemoon.s@gmail.com
