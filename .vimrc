@@ -3,7 +3,6 @@ filetype off
 
 "filetype plugin on
 filetype indent on
-filetype plugin on
 
 " neoBundle
 if has('vim_starting')
@@ -35,8 +34,9 @@ NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'scrooloose/syntastic'
 " NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'shime/vim-livedown'
+NeoBundle 'scrooloose/syntastic'
 
 "色の設定
 "syntax on
@@ -52,7 +52,6 @@ colorscheme solarized
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 set term=screen-256color
-
 
 "行番号の表示/非表示
 set nu
@@ -296,6 +295,16 @@ nmap <Space>bO :OperaReloadStop<CR>
 nmap <Space>ba :AllBrowserReloadStart<CR>
 nmap <Space>bA :AllBrowserReloadStop<CR>
 
+" livedown
+" should markdown preview get shown automatically upon opening markdown buffer
+let g:livedown_autorun = 0
+
+" should the browser window pop-up upon previewing
+let g:livedown_open = 1 
+
+" the port on which Livedown server will run
+let g:livedown_port = 1337
+
 "-------------------------------------------
 set expandtab
 autocmd BufNewFile,BufRead *.yml set shiftwidth=2
@@ -319,7 +328,7 @@ hi StatusLine ctermfg=White ctermbg=Blue cterm=none
 au InsertEnter * hi StatusLine ctermfg=Black ctermbg=yellow cterm=none
 au InsertLeave * hi StatusLine ctermfg=White ctermbg=Blue cterm=none
 
-autocmd BufEnter,BufWritePost * call ErrorCheckStatusline()
+"autocmd BufEnter,BufWritePost * call ErrorCheckStatusline()
 
 " エラー時のステータスライン変更用関数
 function! ErrorCheckStatusline()
@@ -349,29 +358,11 @@ function! ErrorCheckStatusline()
     else
        let g:is_error = 0
     endif
-
-
-  " チェックを実行(python)
-  " let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-  elseif &filetype == "py"
-    let l:tmp = system("pyflakes ".bufname(""))
-
-    " エラーがあった場合
-    if ! (l:tmp == "" )
-       let g:is_error = 1
-       let g:status = split(l:tmp, '\n')
-       silent exec 'set statusline=%{g:status[0]}%=%c,%l%11p%%'
-       silent exec l:ecol
-       return
-    else
-       let g:is_error = 0
-    endif
-
   endif
 
   " 通常のステータスラインを表示
-  silent exec 'set statusline=%F,\ \ %{GetFunctionName()}%=%l/%L%11p%%'
-  silent exec g:ncol
+  "silent exec 'set statusline=%F,\ \ %{GetFunctionName()}%=%l/%L%11p%%'
+  "silent exec g:ncol
   return
 endfunction
 
@@ -385,10 +376,12 @@ autocmd BufNewFile,BufRead *.yml.gree set filetype=yaml
 autocmd BufNewFile,BufRead *.yml..mixi set filetype=yaml
 
 " Python
-let python_highlight_all = 1
-autocmd FileType python set omnifunc=pythoncomplete
-autocmd FileType python set omnifunc=pysmell
-
+"let python_highlight_all = 1
+"autocmd FileType python set omnifunc=pythoncomplete
+"autocmd FileType python set omnifunc=pysmell
+let g:syntastic_python_python_exec = '/usr/bin/python'
+"let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+:let g:syntastic_python_checkers=['python']
 
 " javascript
 autocmd filetype coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
@@ -435,6 +428,7 @@ let g:quickrun_config = {
     \       "outputter/buffer/close_on_empty" : 1
     \   },
     \}
+
 "------------------------------------
 "" sass
 "------------------------------------
