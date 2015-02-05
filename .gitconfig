@@ -34,6 +34,8 @@
     see = browse
     brr = browse-remote
     clean-marged = branch --merged | grep -v '^*' | xargs git branch -d
+    mypr = !hub browse -- pulls/$(git config user.name)
+
 [user]
     name = okbm
     email = freezemoon.s@gmail.com
