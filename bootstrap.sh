@@ -86,6 +86,7 @@ if [ `uname` = "Darwin" ]; then
     go get github.com/motemen/ghq
     go get github.com/sugyan/ttygif
     brew install ttyrec
+    brew install reattach-to-user-namespace
 fi
 
 # gem
