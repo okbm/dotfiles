@@ -318,6 +318,10 @@ autocmd BufNewFile,BufRead *.php set tabstop=4
 autocmd BufNewFile,BufRead *.json set shiftwidth=2
 autocmd BufNewFile,BufRead *.json set softtabstop=2
 autocmd BufNewFile,BufRead *.json set tabstop=2
+
+autocmd BufNewFile,BufRead *.md set shiftwidth=2
+autocmd BufNewFile,BufRead *.md set softtabstop=2
+autocmd BufNewFile,BufRead *.md set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
