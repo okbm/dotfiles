@@ -5,8 +5,10 @@ export EDITOR=/usr/bin/vim
 export GEM_HOME=/usr/bin/gem
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:/usr/local/mysql/bin"
 export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
-EDITOR=/usr/bin/vim
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Vi ライクな操作が好みであれば `bindkey -v` とする
 bindkey -e

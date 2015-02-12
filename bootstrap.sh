@@ -42,7 +42,7 @@ fi
 
 # peco
 mkdir -p ~/.peco
-cp config.json ~/.peco/
+cp .peco/config.json ~/.peco/
 
 # tmuxinator
 cd $HOME
@@ -63,8 +63,8 @@ root: ~/
 windows:
   - work:
      - vim
-  - vagrant:
-      - cd ~/work/vagrant/chef_solo_berkshelf
+  - Desktop:
+     - cd ~/Desktop
 EOF
 
 # bashでgitのブランチを表示する
@@ -76,17 +76,11 @@ mv git-prompt.sh .git-prompt.sh
 
 # brew
 if [ `uname` = "Darwin" ]; then
-    brew install hub
-    brew install tig
-    brew tap peco/peco
-    brew install peco
-    brew install mercurial
-    brew install autojump
-    brew install go
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+    brew doctor
+    brew bundle # Brewfile実行
     go get github.com/motemen/ghq
     go get github.com/sugyan/ttygif
-    brew install ttyrec
-    brew install reattach-to-user-namespace
 fi
 
 # gem
@@ -106,7 +100,6 @@ if [ ! -x "`which gem`" ]; then
     cd HOME
     bundle install --path vendor/bundle
     # ex) bundle exec jdoc
-
 fi
 
 cd $HOME

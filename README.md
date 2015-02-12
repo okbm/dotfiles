@@ -5,5 +5,5 @@ These files are files whom I often use.
 ## setup
 
 ```
-$ bash bootstrap.sh
+$ sh bootstrap.sh
 ```

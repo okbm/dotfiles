@@ -11,6 +11,7 @@ tap homebrew/versions    || true
 tap phinze/homebrew-cask || true
 tap homebrew/binary      || true
 tap thoughtbot/formulae  || true
+tap peco/peco            || true
 
 # Packages
 
@@ -26,6 +27,7 @@ install hub   || true
 install gist  || true
 install tig   || true
 install gibo  || true
+install peco  || true
 
 ## Utils
 install autoconf  || true
@@ -44,6 +46,8 @@ install tmux      || true
 install markdown  || true
 install nkf       || true
 install ag        || true
+install mercurial || true
+install ttyrec    || true
 install reattach-to-user-namespace || true
 
 ## Languages
