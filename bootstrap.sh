@@ -102,6 +102,9 @@ if [ ! -x "`which gem`" ]; then
     # ex) bundle exec jdoc
 fi
 
+# Ricty(未検証)
+curl -L 'https://gist.github.com/ysaotome/7286145/raw/installing_ricty_on_MacOSX.sh' | bash
+
 cd $HOME
 source .bashrc
 source .zshrc

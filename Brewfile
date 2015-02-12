@@ -91,7 +91,10 @@ cask install AppCleaner         || true
 cask install Tree               || true
 cask install XCode              || true
 cask install Karabiner          || true
-
+cask install CotEditor          || true
+cask install Atom               || true
+cask install Recessor           || true
+cask install CodeRunner         || true
 
 # Remove outdated versions
 cleanup
