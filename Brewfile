@@ -81,6 +81,8 @@ cask install vagrant       || true
 cask install dash          || true
 cask install Cyberduck     || true
 cask install Skype         || true
+cask install xtrafinder    || true
+cask install google-japanese-ime || true
 
 # 未検証
 cask install Witch              || true
