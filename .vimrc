@@ -7,8 +7,11 @@ filetype indent on
 " neoBundle
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
 " originalrepos on github
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
@@ -34,9 +37,11 @@ NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
-" NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'shime/vim-livedown'
 NeoBundle 'scrooloose/syntastic'
+
+call neobundle#end()
+filetype plugin indent on
 
 "色の設定
 "syntax on

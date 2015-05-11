@@ -85,7 +85,6 @@ if [ ! -x "`which gem`" ]; then
 
     # tmuxinator
     cd $HOME
-    sudo gem install tmuxinator
     curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash
     mv tmuxinator.bash .tmuxinator.bash
 
@@ -94,6 +93,7 @@ if [ ! -x "`which gem`" ]; then
 fi
 
 # mux work で実行
+mkdir -p ~/.tmuxinator
 cat << EOF > ~/.tmuxinator/work.yml
 # ~/.tmuxinator/work.yml
 
