@@ -2,7 +2,6 @@
 SRC=$(cd "$(dirname "$0")"; pwd)
 
 # symlink dotfiles
-
 for i in `git ls-files | grep '^\.' | grep -v '\.gitignore'`;
 do
     if [ ! -f $SRC/$i -a -f $SRC/$i.sample ]; then
@@ -44,29 +43,6 @@ fi
 mkdir -p ~/.peco
 cp .peco/config.json ~/.peco/
 
-# tmuxinator
-cd $HOME
-sudo gem install tmuxinator
-curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash
-mv tmuxinator.bash .tmuxinator.bash
-
-curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh
-mv tmuxinator.zsh .tmuxinator.zsh
-
-# mux work で実行
-cat << EOF > ~/.tmuxinator/work.yml
-# ~/.tmuxinator/work.yml
-
-name: work
-root: ~/
-
-windows:
-  - work:
-     - vim
-  - Desktop:
-     - cd ~/Desktop
-EOF
-
 # bashでgitのブランチを表示する
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 mv git-completion.bash .git-completion.bash
@@ -81,6 +57,12 @@ if [ `uname` = "Darwin" ]; then
     brew bundle # Brewfile実行
     go get github.com/motemen/ghq
     go get github.com/sugyan/ttygif
+
+    # Ricty(未検証)
+    mkdir -p ~/tmp
+    cd ~/tmp
+    curl -L 'https://gist.github.com/ysaotome/7286145/raw/installing_ricty_on_MacOSX.sh' | bash
+    cd .. && rm -rf ~/tmp
 fi
 
 # gem
@@ -100,12 +82,31 @@ if [ ! -x "`which gem`" ]; then
     cd HOME
     bundle install --path vendor/bundle
     # ex) bundle exec jdoc
+
+    # tmuxinator
+    cd $HOME
+    sudo gem install tmuxinator
+    curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash
+    mv tmuxinator.bash .tmuxinator.bash
+
+    curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh
+    mv tmuxinator.zsh .tmuxinator.zsh
 fi
 
-# Ricty(未検証)
-curl -L 'https://gist.github.com/ysaotome/7286145/raw/installing_ricty_on_MacOSX.sh' | bash
+# mux work で実行
+cat << EOF > ~/.tmuxinator/work.yml
+# ~/.tmuxinator/work.yml
+
+name: work
+root: ~/
+
+windows:
+  - work:
+     - vim
+  - Desktop:
+     - cd ~/Desktop
+EOF
 
 cd $HOME
 source .bashrc
 source .zshrc
-
