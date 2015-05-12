@@ -6,7 +6,12 @@ export GEM_HOME=/usr/bin/gem
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/mysql/bin"
+export PATH="$PATH:/usr/local/Cellar/"
 export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
+
+# Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 
@@ -127,6 +132,20 @@ function title {
 # tmuxinatorを有効にする
 source ~/.tmuxinator.zsh
 
+# cdrを有効にする
+zstyle ':completion:*' menu select
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+
+typeset -ga chpwd_functions
+
+autoload -U chpwd_recent_dirs cdr
+chpwd_functions+=chpwd_recent_dirs
+zstyle ":chpwd:*" recent-dirs-max 500
+zstyle ":chpwd:*" recent-dirs-default true
+zstyle ":completion:*" recent-dirs-insert always
+
+
 # -------------------------------------
 # ツール
 # -------------------------------------
@@ -175,6 +194,18 @@ zle -N peco-git-recent-all-branches
 bindkey '^b^r' peco-git-recent-branches
 bindkey '^br' peco-git-recent-all-branches
 
+# cdr
+function peco-cdr () {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cdr
+bindkey '^d' peco-cdr
+
 # brew install zsh-completions
 if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
@@ -194,5 +225,3 @@ function ghq-list() {
 }
 zle -N ghq-list
 bindkey '^g' ghq-list
-
-source .zsh_alias
