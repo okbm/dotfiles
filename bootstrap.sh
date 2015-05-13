@@ -35,62 +35,26 @@ fi
 # tmux
 if [ ! -d ~/.solarized ]; then
     mkdir ~/.solarized
-    cd ~/.solarized
-    git clone https://github.com/seebi/tmux-colors-solarized.git
+    git clone https://github.com/seebi/tmux-colors-solarized.git ~/.solarized/
 fi
 
 # peco
 mkdir -p ~/.peco
 cp .peco/config.json ~/.peco/
 
-# bashでgitのブランチを表示する
-wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-mv git-completion.bash .git-completion.bash
+# gitのブランチを表示する
+curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+mv git-completion.bash ~/.git-completion.bash
 
-wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-mv git-prompt.sh .git-prompt.sh
+curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+mv git-prompt.sh ~/.git-prompt.sh
 
-# brew
-if [ `uname` = "Darwin" ]; then
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
-    brew doctor
-    brew bundle # Brewfile実行
-    go get github.com/motemen/ghq
-    go get github.com/sugyan/ttygif
+# tmuxinator
+curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash
+mv tmuxinator.bash ~/.tmuxinator.bash
 
-    # Ricty(未検証)
-    mkdir -p ~/tmp
-    cd ~/tmp
-    curl -L 'https://gist.github.com/ysaotome/7286145/raw/installing_ricty_on_MacOSX.sh' | bash
-    cd .. && rm -rf ~/tmp
-fi
-
-# gem
-if [ ! -x "`which gem`" ]; then
-    wget http://production.cf.rubygems.org/rubygems/rubygems-2.4.1.zip
-    unzip rubygems-2.4.1.zip && rm rubygems-2.4.1.zip
-    cd rubygems-2.4.1
-    sudo ruby setup.rb
-
-    # update
-    gem install rubygems-update
-    update_rubygems
-    gem update
-
-    gem install bundler --no-ri --no-rdoc
-    cp $SRC/Gemfile $HOME
-    cd HOME
-    bundle install --path vendor/bundle
-    # ex) bundle exec jdoc
-
-    # tmuxinator
-    cd $HOME
-    curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash
-    mv tmuxinator.bash .tmuxinator.bash
-
-    curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh
-    mv tmuxinator.zsh .tmuxinator.zsh
-fi
+curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh
+mv tmuxinator.zsh ~/.tmuxinator.zsh
 
 # mux work で実行
 mkdir -p ~/.tmuxinator
@@ -107,6 +71,23 @@ windows:
      - cd ~/Desktop
 EOF
 
-cd $HOME
-source .bashrc
-source .zshrc
+# brew
+if [ `uname` = "Darwin" ]; then
+    # zsh
+    echo '/usr/local/bin/zsh' |  sudo tee -a /etc/shells
+    chsh -s /usr/local/bin/zsh
+
+    # gem
+    gem install tmuxinator
+
+    # homebrew
+    sudo -v
+    sh ./scripts/install.sh
+
+    # Ricty(未検証)
+#    mkdir -p ~/tmp
+#    cd ~/tmp
+#    curl -L 'https://gist.github.com/ysaotome/7286145/raw/installing_ricty_on_MacOSX.sh' | bash
+#    cd .. && rm -rf ~/tmp
+fi
+
