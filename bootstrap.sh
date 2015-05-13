@@ -71,23 +71,26 @@ windows:
      - cd ~/Desktop
 EOF
 
+# go
+mkdir -p ~/.go/src
+
 # brew
 if [ `uname` = "Darwin" ]; then
-    # zsh
-    echo '/usr/local/bin/zsh' |  sudo tee -a /etc/shells
-    chsh -s /usr/local/bin/zsh
-
     # gem
-    gem install tmuxinator
+    sudo gem install tmuxinator
 
     # homebrew
     sudo -v
     sh ./scripts/install.sh
+
+    # zsh
+    echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
+    chsh -s /usr/local/bin/zsh
+fi
 
     # Ricty(未検証)
 #    mkdir -p ~/tmp
 #    cd ~/tmp
 #    curl -L 'https://gist.github.com/ysaotome/7286145/raw/installing_ricty_on_MacOSX.sh' | bash
 #    cd .. && rm -rf ~/tmp
-fi
 
