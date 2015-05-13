@@ -95,6 +95,7 @@ brew cask install karabiner          || true
 brew cask install coteditor          || true
 brew cask install coderunner         || true
 brew cask install messenger          || true
+brew cask install macdown            || true
 
 # Remove outdated versions
 brew cleanup
