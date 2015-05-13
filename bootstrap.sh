@@ -86,9 +86,13 @@ if [ `uname` = "Darwin" ]; then
     # zsh
     echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
     chsh -s /usr/local/bin/zsh
+
+    # config
+    # dotfilesの表示
+    defaults write com.apple.finder AppleShowAllFiles true; killall finder
 fi
 
-    # Ricty(未検証)
+# Ricty(未検証)
 #    mkdir -p ~/tmp
 #    cd ~/tmp
 #    curl -L 'https://gist.github.com/ysaotome/7286145/raw/installing_ricty_on_MacOSX.sh' | bash
