@@ -327,6 +327,10 @@ autocmd BufNewFile,BufRead *.json set tabstop=2
 autocmd BufNewFile,BufRead *.md set shiftwidth=2
 autocmd BufNewFile,BufRead *.md set softtabstop=2
 autocmd BufNewFile,BufRead *.md set tabstop=2
+
+autocmd BufNewFile,BufRead *.rb set shiftwidth=2
+autocmd BufNewFile,BufRead *.rb set softtabstop=2
+autocmd BufNewFile,BufRead *.rb set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
