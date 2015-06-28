@@ -180,7 +180,7 @@ nnoremap <S-Down>  <C-w>+<CR>
 "バッファ操作
 nnoremap <C-m><C-n> :bn<CR>
 nnoremap <C-m><C-p> :bp<CR>
-nnoremap <C-b><C-b> <C-^>
+nnoremap <C-m><C-b> <C-^>
 
 " 空行を挿入する
 " http://vim-users.jp/2009/08/hack57/
