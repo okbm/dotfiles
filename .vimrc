@@ -23,28 +23,29 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'vim-scripts/The-NERD-tree'
-NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'szw/vim-tags'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'taichouchou2/html5.vim'
-NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'thinca/vim-quickrun'
-"NeoBundle 'Shougo/Vimfiler'
-NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'shime/vim-livedown'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tell-k/vim-browsereload-mac'
+
+" ruby
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-endwise'
+
+"NeoBundle 'Shougo/Vimfiler'
+"NeoBundle 'mattn/benchvimrc-vim'
 
 call neobundle#end()
 filetype plugin indent on
 
 "色の設定
-"syntax on
 "hi Search term=reverse ctermfg=black
 "hi Pmenu ctermfg=black
 "hi PmenuSel ctermfg=black
@@ -122,9 +123,6 @@ set lazyredraw
 "vimrcの読み込み
 :command! Vimrc :e ~/.vimrc
 
-"保存時にphp構文チェック
-autocmd BufWritePost *.php !php -l %
-
 " カーソルを行頭、行末でとまらないようにする
 "set whichwrap=b,s,h,l,<,>,[,]
 
@@ -194,6 +192,7 @@ nnoremap <C-m><C-b> <C-^>
 
 " クリップボードにコピー
 set clipboard=unnamed,autoselect
+
 "-------------------------------------------
 " pluginの設定 " 
 " neocomplcache
@@ -278,7 +277,7 @@ nnoremap <silent> ub :<C-u>Unite buffer<CR>
 " ファイル一覧
 nnoremap <silent> uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent> ur :<C-u>Unite -buffer-name=register register<CR>
+"nnoremap <silent> ur :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
 nnoremap <silent> um :<C-u>Unite file_mru<CR>
 " 全部乗せ
@@ -286,6 +285,8 @@ nnoremap <silent> ua :<C-u>UniteWithBufferDir -buffer-name=files bufferfile_mru 
 
 " grep
 nnoremap <silent> ug :<C-u>Unite grep::-iHRn -direction=botright <CR>
+" grepの結果呼び出し
+"nnoremap <silent> ur :<C-u>UniteResume search-buffer<CR>
 
 "browserload-mac
 " リロード後に戻ってくるアプリ 変更してください
@@ -306,7 +307,7 @@ nmap <Space>bA :AllBrowserReloadStop<CR>
 let g:livedown_autorun = 0
 
 " should the browser window pop-up upon previewing
-let g:livedown_open = 1 
+let g:livedown_open = 1
 
 " the port on which Livedown server will run
 let g:livedown_port = 1337
@@ -443,103 +444,3 @@ let g:quickrun_config = {
     \   },
     \}
 
-"------------------------------------
-"" sass
-"------------------------------------
-"""{{{
-"let g:sass_compile_auto = 1
-"let g:sass_compile_cdloop = 5
-"let g:sass_compile_cssdir = ['css', 'stylesheet']
-"let g:sass_compile_file = ['scss', 'sass']
-"let g:sass_started_dirs = []
-" 
-"autocmd FileType less,sass setlocal sw=2 sts=2 ts=2 et
-"au! BufWritePost * SassCompile
-"}}}
-
-"------------------------------------
-"" vimのタブ化
-"------------------------------------
-" Anywhere SID.
-"function! s:SID_PREFIX()
-"  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
-"endfunction
-"
-"" Set tabline.
-"function! s:my_tabline()  "{{{
-"  let s = ''
-"  for i in range(1, tabpagenr('$'))
-"    let bufnrs = tabpagebuflist(i)
-"    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-"    let no = i  " display 0-origin tabpagenr.
-"    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-"    let title = fnamemodify(bufname(bufnr), ':t')
-"    let title = '[' . title . ']'
-"    let s .= '%'.i.'T'
-"    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-"    let s .= no . ':' . title
-"    let s .= mod
-"    let s .= '%#TabLineFill# '
-"  endfor
-"  let s .= '%#TabLineFill#%T%=%#TabLine#'
-"  return s
-"endfunction "}}}
-"let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-"set showtabline=2 " 常にタブラインを表示
-"
-"" The prefix key.
-""nnoremap [Tag] <Nop>
-""nmap t [Tag]
-"" Tab jump
-"for n in range(1, 9)
-"  execute 'nnoremap <silent> tn :<C-u>tabnext'.n.'<CR>'
-"endfor
-"" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
-"
-"map <silent> tc :tablast <bar> tabnew<CR>
-"" tc 新しいタブを一番右に作る
-"map <silent> tx :tabclose<CR>
-"" tx タブを閉じる
-"map <silent> tn :tabnext<CR>
-"" tn 次のタブ
-"map <silent> tp :tabprevious<CR>
-"" tp 前のタブ
-
-"----------------------------------------------------------+
-" エラー行の背景色変更
-"----------------------------------------------------------+
-
-" キーバインドとautocmd設定
-nnoremap <Space> :call JumpToPHPError()<CR>
-autocmd BufEnter,BufWritePost *.php call CheckErrorLine()
-
-" エラー箇所にジャンプ
-function! JumpToPHPError()
-  silent! exe 'sign jump 99999 buffer='.winbufnr(0)
-endfunction
-
-" エラー箇所をハイライト
-function! CheckErrorLine()
-
-  " とりあえず消す.
-  "syntax on
-  silent! exe 'sign unplace 99999 buffer=' . winbufnr(0)
-
-  " チェックを実行(PHP)
-  let l:tmp = system("php -l ".bufname(""))
-
-  " エラーがあった場合
-  if ! (l:tmp =~ "No syntax errors" )
-      let s:line = matchstr(l:tmp,'on line \d\+')
-      let l:line = split(s:line, 'line ')
-      "syntax off
-
-     silent exe 'sign define PHPERROR text=>> linehl=ECOLOR texthl=ECOLOR'
-     silent exe 'sign place 99999 line=' . l:line[1] . ' name=PHPERROR buffer=' . winbufnr(0)
-     silent exe 'hi ECOLOR ctermfg=Yellow ctermbg=Red cterm=none'
-
-     return
-  endif
-
-  return
-endfunction
