@@ -193,8 +193,12 @@ nnoremap <C-m><C-b> <C-^>
 " クリップボードにコピー
 set clipboard=unnamed,autoselect
 
+"ctrl-pでのタグを消さない
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_height          = 20
+
 "-------------------------------------------
-" pluginの設定 " 
+" pluginの設定 "
 " neocomplcache
 
 " Disable AutoComplPop. Comment out this line if AutoComplPop is not installed.
