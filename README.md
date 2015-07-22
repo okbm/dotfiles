@@ -19,3 +19,4 @@ $ cd ~/.go/src/github.com/okbm/dotfiles
 ```
 $ sh bootstrap.sh
 ```
+
