@@ -33,6 +33,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tell-k/vim-browsereload-mac'
+NeoBundle 'rking/ag.vim'
 
 " ruby
 NeoBundle 'tpope/vim-rails'
@@ -196,6 +197,7 @@ set clipboard=unnamed,autoselect
 "ctrl-pでのタグを消さない
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_height          = 20
+let g:ctrlp_user_command = 'ag %s -l'
 
 "-------------------------------------------
 " pluginの設定 "
@@ -337,6 +339,10 @@ autocmd BufNewFile,BufRead *.md set tabstop=2
 autocmd BufNewFile,BufRead *.rb set shiftwidth=2
 autocmd BufNewFile,BufRead *.rb set softtabstop=2
 autocmd BufNewFile,BufRead *.rb set tabstop=2
+
+autocmd BufNewFile,BufRead *.slim set shiftwidth=2
+autocmd BufNewFile,BufRead *.slim set softtabstop=2
+autocmd BufNewFile,BufRead *.slim set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
