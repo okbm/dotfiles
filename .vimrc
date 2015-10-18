@@ -26,7 +26,6 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'vim-scripts/The-NERD-tree'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'szw/vim-tags'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -34,6 +33,8 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'vim-scripts/gitignore'
+NeoBundle 'szw/vim-tags'
 
 " ruby
 NeoBundle 'tpope/vim-rails'
@@ -195,9 +196,21 @@ nnoremap <C-m><C-b> <C-^>
 set clipboard=unnamed,autoselect
 
 "ctrl-pでのタグを消さない
-let g:ctrlp_clear_cache_on_exit = 0
+"let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_height          = 20
 let g:ctrlp_user_command = 'ag %s -l'
+
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
 
 "-------------------------------------------
 " pluginの設定 "
@@ -266,10 +279,10 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" ctagsの設定
-au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
-au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "ctags --languages=php -f ~/php.tags `pwd` 2>/dev/null &"
-" 複数の候補が出た場合に表示させる
+" ctag
+let g:vim_tags_project_tags_command = "ctags -f tags -R . 2>/dev/null"
+let g:vim_tags_gems_tags_command = "ctags -R -f Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
+set tags+=tags,Gemfile.lock.tags
 nnoremap <C-]> g<C-]>
 
 " HTMLの</で閉じタグを入れる
@@ -291,6 +304,11 @@ nnoremap <silent> ua :<C-u>UniteWithBufferDir -buffer-name=files bufferfile_mru 
 
 " grep
 nnoremap <silent> ug :<C-u>Unite grep::-iHRn -direction=botright <CR>
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 " grepの結果呼び出し
 "nnoremap <silent> ur :<C-u>UniteResume search-buffer<CR>
 
@@ -318,6 +336,9 @@ let g:livedown_open = 1
 " the port on which Livedown server will run
 let g:livedown_port = 1337
 
+" ag
+nmap <Space><Space> :Ag <c-r>=expand("<cword>")<cr><cr>
+nnoremap <space>/ :Ag 
 "-------------------------------------------
 set expandtab
 autocmd BufNewFile,BufRead *.yml set shiftwidth=2
@@ -343,6 +364,14 @@ autocmd BufNewFile,BufRead *.rb set tabstop=2
 autocmd BufNewFile,BufRead *.slim set shiftwidth=2
 autocmd BufNewFile,BufRead *.slim set softtabstop=2
 autocmd BufNewFile,BufRead *.slim set tabstop=2
+
+autocmd BufNewFile,BufRead *.jbuilder set shiftwidth=2
+autocmd BufNewFile,BufRead *.jbuilder set softtabstop=2
+autocmd BufNewFile,BufRead *.jbuilder set tabstop=2
+
+autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
+autocmd BufNewFile,BufRead Guardfile  set filetype=ruby
+autocmd BufNewFile,BufRead .pryrc     set filetype=ruby
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
@@ -449,8 +478,9 @@ endfunction
 "QuickRunの設定
 let g:quickrun_config = {
     \   "_" : {
-    \       "outputter/buffer/split" : ":botright",
+    \       "outputter/buffer/split" : ":botright 8sp",
     \       "outputter/buffer/close_on_empty" : 1
     \   },
     \}
 
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
