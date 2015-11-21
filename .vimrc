@@ -1,12 +1,17 @@
-set nocompatible
-filetype off
-
-"filetype plugin on
-filetype indent on
-
 " neoBundle
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
+
+let g:vim_bootstrap_editor = "vim"      " nvim or vim
+
+let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundle_readme)
+  echo "Installing NeoBundle..."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
+  let g:not_finsh_neobundle = "yes"
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -20,18 +25,16 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix' : 'make -f make_unix.mak',
   \ },
   \ }
-NeoBundle 'VimClojure'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundle 'vim-scripts/The-NERD-tree'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'vim-scripts/gitignore'
 NeoBundle 'szw/vim-tags'
@@ -40,12 +43,23 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'ruby-matchit'
 
 "NeoBundle 'Shougo/Vimfiler'
 "NeoBundle 'mattn/benchvimrc-vim'
+"NeoBundle 'VimClojure'
+"NeoBundle 'vim-scripts/The-NERD-tree'
+"NeoBundle 'tell-k/vim-browsereload-mac'
 
 call neobundle#end()
 filetype plugin indent on
+
+"*****************************************************************************
+"" Basic Setup
+"*****************************************************************************"
+set nocompatible
+filetype off
+filetype indent on
 
 "色の設定
 "hi Search term=reverse ctermfg=black
@@ -212,8 +226,11 @@ else
     \ }
 endif
 
-"-------------------------------------------
-" pluginの設定 "
+" ディレクトリを移動
+set autochdir
+"*****************************************************************************
+"" pluginの設定
+"*****************************************************************************"
 " neocomplcache
 
 " Disable AutoComplPop. Comment out this line if AutoComplPop is not installed.
@@ -314,31 +331,45 @@ endif
 
 "browserload-mac
 " リロード後に戻ってくるアプリ 変更してください
-let g:returnApp = "iTerm"
-nmap <Space>bc :ChromeReloadStart<CR>
-nmap <Space>bC :ChromeReloadStop<CR>
-nmap <Space>bf :FirefoxReloadStart<CR>
-nmap <Space>bF :FirefoxReloadStop<CR>
-nmap <Space>bs :SafariReloadStart<CR>
-nmap <Space>bS :SafariReloadStop<CR>
-nmap <Space>bo :OperaReloadStart<CR>
-nmap <Space>bO :OperaReloadStop<CR>
-nmap <Space>ba :AllBrowserReloadStart<CR>
-nmap <Space>bA :AllBrowserReloadStop<CR>
+" let g:returnApp = "iTerm"
+" nmap <Space>bc :ChromeReloadStart<CR>
+" nmap <Space>bC :ChromeReloadStop<CR>
+" nmap <Space>bf :FirefoxReloadStart<CR>
+" nmap <Space>bF :FirefoxReloadStop<CR>
+" nmap <Space>bs :SafariReloadStart<CR>
+" nmap <Space>bS :SafariReloadStop<CR>
+" nmap <Space>bo :OperaReloadStart<CR>
+" nmap <Space>bO :OperaReloadStop<CR>
+" nmap <Space>ba :AllBrowserReloadStart<CR>
+" nmap <Space>bA :AllBrowserReloadStop<CR>
 
-" livedown
-" should markdown preview get shown automatically upon opening markdown buffer
-let g:livedown_autorun = 0
-
-" should the browser window pop-up upon previewing
-let g:livedown_open = 1
-
-" the port on which Livedown server will run
-let g:livedown_port = 1337
+"" livedown
+"" should markdown preview get shown automatically upon opening markdown buffer
+"let g:livedown_autorun = 0
+"
+"" should the browser window pop-up upon previewing
+"let g:livedown_open = 1
+"
+"" the port on which Livedown server will run
+"let g:livedown_port = 1337
 
 " ag
 nmap <Space><Space> :Ag <c-r>=expand("<cword>")<cr><cr>
 nnoremap <space>/ :Ag 
+
+" nerdtree
+"" NERDTree configuration
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+"let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+"let g:NERDTreeWinSize = 50
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+nnoremap <silent> <F2> :NERDTreeFind<CR>
+noremap <F3> :NERDTreeToggle<CR>
+
 "-------------------------------------------
 set expandtab
 autocmd BufNewFile,BufRead *.yml set shiftwidth=2
