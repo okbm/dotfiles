@@ -135,6 +135,7 @@ hi Search guibg=Yellow ctermbg=Yellow
 
 " スクロール高速
 set lazyredraw
+set ttyfast
 
 "vimrcの読み込み
 :command! Vimrc :e ~/.vimrc
