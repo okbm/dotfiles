@@ -77,7 +77,7 @@ set term=screen-256color
 
 "行番号の表示/非表示
 set nu
-set cursorline
+"set cursorline
 
 " 自動インデント
 set autoindent
