@@ -2,7 +2,8 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=/usr/bin/vim
 
-export GEM_HOME=/usr/bin/gem
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init - zsh)"
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/mysql/bin"
@@ -14,6 +15,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(rbenv init -)"
 
 # Vi ライクな操作が好みであれば `bindkey -v` とする
 bindkey -e
@@ -166,6 +168,11 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+# vim & ag
+function agvim () {
+  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  }
+
 # git
 function peco-git-recent-branches () {
     local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
@@ -193,6 +200,11 @@ zle -N peco-git-recent-all-branches
 
 bindkey '^b^r' peco-git-recent-branches
 bindkey '^br' peco-git-recent-all-branches
+
+show_open_issues_on_web() {
+  ghi show -w $(ghi list --filter 'all'| peco)
+}
+alias si=show_open_issues_on_web
 
 # cdr
 function peco-cdr () {

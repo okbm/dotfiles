@@ -1,9 +1,15 @@
 {
-    "Style": {
-        "Basic": ["on_default", "default"],
-        "SavedSelection": ["bold", "on_yellow", "white"],
-        "Selected": ["underline", "on_cyan", "black"],
-        "Query": ["yellow", "bold"],
-        "Matched": ["red"]
+  "Style": {
+    "Basic": ["on_default", "default"],
+    "SavedSelection": ["bold", "on_yellow", "white"],
+    "Selected": ["underline", "on_cyan", "black"],
+    "Query": ["yellow", "bold"],
+    "Matched": ["red"]
+  },
+  "CustomFilter": {
+    "Migemo": {
+      "Cmd": "migemogrep",
+      "BufferThreshold": 10000
     }
+  }
 }

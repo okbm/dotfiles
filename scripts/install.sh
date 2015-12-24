@@ -32,6 +32,8 @@ brew install gist  || true
 brew install tig   || true
 brew install gibo  || true
 brew install peco  || true
+brew install ghi   || true # http://qiita.com/mamoru0217/items/00c0bae2a636750b0e09
+brew install migemogrep || true
 
 ## Utils
 brew install autoconf  || true
