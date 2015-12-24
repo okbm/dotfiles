@@ -96,6 +96,8 @@ brew cask install coteditor          || true
 brew cask install coderunner         || true
 brew cask install messenger          || true
 brew cask install macdown            || true
+brew cask install shiftit            || true
+brew cask install tomighty           || true
 
 # Remove outdated versions
 brew cleanup
