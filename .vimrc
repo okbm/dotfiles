@@ -44,6 +44,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'ruby-matchit'
+NeoBundle 'slim-template/vim-slim'
 
 "NeoBundle 'Shougo/Vimfiler'
 "NeoBundle 'mattn/benchvimrc-vim'
@@ -403,6 +404,10 @@ autocmd BufNewFile,BufRead *.slim set tabstop=2
 autocmd BufNewFile,BufRead *.jbuilder set shiftwidth=2
 autocmd BufNewFile,BufRead *.jbuilder set softtabstop=2
 autocmd BufNewFile,BufRead *.jbuilder set tabstop=2
+
+autocmd BufNewFile,BufRead *.log set shiftwidth=2
+autocmd BufNewFile,BufRead *.log set softtabstop=2
+autocmd BufNewFile,BufRead *.log set tabstop=2
 
 autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
 autocmd BufNewFile,BufRead Guardfile  set filetype=ruby
