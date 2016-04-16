@@ -9,6 +9,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/usr/local/Cellar/"
 export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -16,6 +17,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
+export TERM=xterm-256color
+
 
 # Vi ライクな操作が好みであれば `bindkey -v` とする
 bindkey -e

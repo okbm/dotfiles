@@ -38,13 +38,13 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'vim-scripts/gitignore'
 NeoBundle 'szw/vim-tags'
+NeoBundle 'aereal/vim-colors-japanesque'
 
 " ruby
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'ruby-matchit'
-NeoBundle 'slim-template/vim-slim'
 
 "NeoBundle 'Shougo/Vimfiler'
 "NeoBundle 'mattn/benchvimrc-vim'
@@ -63,22 +63,27 @@ filetype off
 filetype indent on
 
 "色の設定
-"hi Search term=reverse ctermfg=black
-"hi Pmenu ctermfg=black
-"hi PmenuSel ctermfg=black
+" hi Search term=reverse ctermfg=black
+" hi Pmenu ctermfg=black
+" hi PmenuSel ctermfg=black
 
 " item2用
 " download https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 syntax enable
-set background=dark
-colorscheme solarized
+set term=screen-256color
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-set term=screen-256color
+colorscheme solarized
+set t_Co=256
+
+" 行数の色
+hi LineNr ctermbg=0 ctermfg=0
+hi CursorLineNr ctermbg=255 ctermfg=0
+set cursorline
+hi clear CursorLine
 
 "行番号の表示/非表示
 set nu
-"set cursorline
 
 " 自動インデント
 set autoindent
@@ -404,10 +409,6 @@ autocmd BufNewFile,BufRead *.slim set tabstop=2
 autocmd BufNewFile,BufRead *.jbuilder set shiftwidth=2
 autocmd BufNewFile,BufRead *.jbuilder set softtabstop=2
 autocmd BufNewFile,BufRead *.jbuilder set tabstop=2
-
-autocmd BufNewFile,BufRead *.log set shiftwidth=2
-autocmd BufNewFile,BufRead *.log set softtabstop=2
-autocmd BufNewFile,BufRead *.log set tabstop=2
 
 autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
 autocmd BufNewFile,BufRead Guardfile  set filetype=ruby
