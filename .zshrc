@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 # 環境設定周り
 export LANG=ja_JP.UTF-8
 export EDITOR=/usr/bin/vim
@@ -10,10 +12,14 @@ export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/usr/local/Cellar/"
 export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
 
+export PATH=$PATH:$HOME/.nodebrew/current/bin
+export NODEBREW_ROOT=$HOME/.nodebrew
+
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(direnv hook zsh)"
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 
@@ -237,3 +243,17 @@ function ghq-list() {
 }
 zle -N ghq-list
 bindkey '^g' ghq-list
+
+ciopen() {
+  commit=$1
+  result=$(hub ci-status -v $commit)
+  if [ $? == 3 ]; then
+    echo $result
+  else
+    open $(echo $result | awk '{print $2}')
+  fi
+}
+
+# if type zprof > /dev/null 2>&1; then
+#       zprof | less
+# fi

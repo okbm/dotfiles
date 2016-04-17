@@ -34,7 +34,7 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'yuroyoro/smooth_scroll.vim'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'vim-scripts/gitignore'
 NeoBundle 'szw/vim-tags'
@@ -412,12 +412,15 @@ autocmd BufNewFile,BufRead *.log set tabstop=2
 autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
 autocmd BufNewFile,BufRead Guardfile  set filetype=ruby
 autocmd BufNewFile,BufRead .pryrc     set filetype=ruby
+
+autocmd BufNewFile,BufRead *.rake set shiftwidth=2
+autocmd BufNewFile,BufRead *.rake set softtabstop=2
+autocmd BufNewFile,BufRead *.rake set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
 
 " ステータスラインを常に表示,色変更
-set laststatus=2
 hi StatusLine ctermfg=White ctermbg=Blue cterm=none
 au InsertEnter * hi StatusLine ctermfg=Black ctermbg=yellow cterm=none
 au InsertLeave * hi StatusLine ctermfg=White ctermbg=Blue cterm=none
