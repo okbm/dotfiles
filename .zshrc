@@ -11,6 +11,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/usr/local/Cellar/"
 export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 export PATH=$PATH:$HOME/.nodebrew/current/bin
 export NODEBREW_ROOT=$HOME/.nodebrew
@@ -22,6 +23,8 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(direnv hook zsh)"
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
+export TERM=xterm-256color
+
 
 # Vi ライクな操作が好みであれば `bindkey -v` とする
 bindkey -e
