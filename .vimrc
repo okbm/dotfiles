@@ -70,7 +70,7 @@ filetype indent on
 " item2用
 " download https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 syntax enable
-set term=screen-256color
+"set term=screen-256color
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
@@ -217,7 +217,8 @@ nmap <F6> <ESC>i<C-R>=strftime("%Y-%m-%d (%a)")<CR><CR>
  endif
 
 " クリップボードにコピー
-set clipboard=unnamed,autoselect
+" set clipboard=unnamed,autoselect
+set clipboard+=unnamedplus
 
 "ctrl-pでのタグを消さない
 "let g:ctrlp_clear_cache_on_exit = 0
