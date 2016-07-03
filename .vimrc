@@ -413,6 +413,14 @@ autocmd BufNewFile,BufRead *.jbuilder set tabstop=2
 autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
 autocmd BufNewFile,BufRead Guardfile  set filetype=ruby
 autocmd BufNewFile,BufRead .pryrc     set filetype=ruby
+
+autocmd BufNewFile,BufRead *.log set shiftwidth=2
+autocmd BufNewFile,BufRead *.log set softtabstop=2
+autocmd BufNewFile,BufRead *.log set tabstop=2
+
+autocmd BufNewFile,BufRead *.css set shiftwidth=2
+autocmd BufNewFile,BufRead *.css set softtabstop=2
+autocmd BufNewFile,BufRead *.css set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
