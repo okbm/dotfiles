@@ -1,5 +1,3 @@
-# zmodload zsh/zprof
-
 # 環境設定周り
 export LANG=ja_JP.UTF-8
 export EDITOR=/usr/bin/vim
@@ -95,6 +93,8 @@ alias ls='ls -GF '
 alias fp='find . -type f -name "*.php" | xargs grep --color -i '
 alias glist='cd $(ghq list -p | peco)'
 alias gopen='gh-open $(ghq list -p | peco)'
+alias mux='tmuxinator'
+alias vim='nvim'
 
 # -------------------------------------
 # プロンプト

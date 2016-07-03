@@ -1,60 +1,47 @@
-" neoBundle
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
+" dein
+if &compatible
+  set nocompatible
+endif
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if !isdirectory(s:dein_repo_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+endif
+execute 'set runtimepath^=' . s:dein_repo_dir
+
+call dein#begin(s:dein_dir)
+
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  call dein#add('Shougo/neocomplete.vim')
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/neocomplcache.vim')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('scrooloose/syntastic')
+  call dein#add('kien/ctrlp.vim')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('yuroyoro/smooth_scroll.vim')
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('Lokaltog/vim-powerline')
+  call dein#add('rking/ag.vim')
+  call dein#add('vim-scripts/gitignore')
+  call dein#add('szw/vim-tags')
+  call dein#add('aereal/vim-colors-japanesque')
+
+  " ruby
+  call dein#add( 'tpope/vim-rails')
+  call dein#add( 'tpope/vim-bundler')
+  call dein#add( 'tpope/vim-endwise')
+  call dein#add( 'ruby-matchit')
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-let g:vim_bootstrap_editor = "vim"      " nvim or vim
-
-let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
-if !filereadable(neobundle_readme)
-  echo "Installing NeoBundle..."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
-  let g:not_finsh_neobundle = "yes"
-endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" originalrepos on github
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
-  \ },
-  \ }
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'yuroyoro/smooth_scroll.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'vim-scripts/gitignore'
-NeoBundle 'szw/vim-tags'
-NeoBundle 'aereal/vim-colors-japanesque'
-
-" ruby
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'ruby-matchit'
-
-"NeoBundle 'Shougo/Vimfiler'
-"NeoBundle 'mattn/benchvimrc-vim'
-"NeoBundle 'VimClojure'
-"NeoBundle 'vim-scripts/The-NERD-tree'
-"NeoBundle 'tell-k/vim-browsereload-mac'
-
-call neobundle#end()
 filetype plugin indent on
-
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
@@ -218,7 +205,7 @@ nmap <F6> <ESC>i<C-R>=strftime("%Y-%m-%d (%a)")<CR><CR>
 
 " クリップボードにコピー
 " set clipboard=unnamed,autoselect
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 
 "ctrl-pでのタグを消さない
 "let g:ctrlp_clear_cache_on_exit = 0
@@ -431,6 +418,7 @@ autocmd BufNewFile,BufRead *.rake set tabstop=2
 "----------------------------------------------------------+
 
 " ステータスラインを常に表示,色変更
+set laststatus=2
 hi StatusLine ctermfg=White ctermbg=Blue cterm=none
 au InsertEnter * hi StatusLine ctermfg=Black ctermbg=yellow cterm=none
 au InsertLeave * hi StatusLine ctermfg=White ctermbg=Blue cterm=none
