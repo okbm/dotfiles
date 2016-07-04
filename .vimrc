@@ -66,8 +66,8 @@ set t_Co=256
 " 行数の色
 hi LineNr ctermbg=0 ctermfg=0
 hi CursorLineNr ctermbg=255 ctermfg=0
-set cursorline
-hi clear CursorLine
+" set cursorline
+" hi clear CursorLine
 
 "行番号の表示/非表示
 set nu
@@ -413,6 +413,10 @@ autocmd BufNewFile,BufRead *.css set tabstop=2
 autocmd BufNewFile,BufRead *.rake set shiftwidth=2
 autocmd BufNewFile,BufRead *.rake set softtabstop=2
 autocmd BufNewFile,BufRead *.rake set tabstop=2
+
+autocmd BufNewFile,BufRead *.log set shiftwidth=2
+autocmd BufNewFile,BufRead *.log set softtabstop=2
+autocmd BufNewFile,BufRead *.log set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
