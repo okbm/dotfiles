@@ -154,6 +154,9 @@ set pastetoggle=<C-E>
 
 " ファイル名の補完
 set wildmode=list:longest
+
+" 文字崩れ対応
+set ambiwidth=double
 "-------------------------------------------
 " キーバインド変更
 " 入力モード中に素早くjjと入力した場合はESCとみなす
