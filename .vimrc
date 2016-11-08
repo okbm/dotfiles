@@ -192,7 +192,7 @@ nnoremap <C-m><C-b> <C-^>
 
 " 空行を挿入する
 " http://vim-users.jp/2009/08/hack57/
- nnoremap 0 :<C-u>call append(expand('.'), '')<Cr>j
+nnoremap 0 :<C-u>call append(expand('.'), '')<Cr>j
 
 "<F6>  文頭にタイムスタンプを挿入してinsertモードへ移行
 nmap <F6> <ESC>i<C-R>=strftime("%Y-%m-%d (%a)")<CR><CR>
@@ -468,11 +468,6 @@ endfunction
 "----------------------------------------------------------+
 "  Program                                                 |
 "----------------------------------------------------------+
-
-" PHP
-autocmd BufNewFile,BufRead *.ctp set filetype=php
-autocmd BufNewFile,BufRead *.yml.gree set filetype=yaml
-autocmd BufNewFile,BufRead *.yml..mixi set filetype=yaml
 
 " Python
 "let python_highlight_all = 1
