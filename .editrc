@@ -1,0 +1,3 @@
+bind "^U" vi-kill-line-prev
+bind "^W" ed-delete-prev-word
+bind "^R" em-inc-search-prev
