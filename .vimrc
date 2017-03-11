@@ -18,6 +18,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neomru.vim')
   call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
   call dein#add('Shougo/neocomplcache.vim')
   call dein#add('scrooloose/nerdtree')
   call dein#add('scrooloose/syntastic')
@@ -309,6 +310,7 @@ autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
 " unite.vim
 " 入力モードで開始
 let g:unite_enable_start_insert=0
+
 " バッファ一覧
 nnoremap <silent> ub :<C-u>Unite buffer<CR>
 " ファイル一覧
@@ -321,38 +323,14 @@ nnoremap <silent> um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ua :<C-u>UniteWithBufferDir -buffer-name=files bufferfile_mru bookmark file<CR>
 
 " grep
-nnoremap <silent> ug :<C-u>Unite grep::-iHRn -direction=botright <CR>
+nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
-" grepの結果呼び出し
-"nnoremap <silent> ur :<C-u>UniteResume search-buffer<CR>
-
-"browserload-mac
-" リロード後に戻ってくるアプリ 変更してください
-" let g:returnApp = "iTerm"
-" nmap <Space>bc :ChromeReloadStart<CR>
-" nmap <Space>bC :ChromeReloadStop<CR>
-" nmap <Space>bf :FirefoxReloadStart<CR>
-" nmap <Space>bF :FirefoxReloadStop<CR>
-" nmap <Space>bs :SafariReloadStart<CR>
-" nmap <Space>bS :SafariReloadStop<CR>
-" nmap <Space>bo :OperaReloadStart<CR>
-" nmap <Space>bO :OperaReloadStop<CR>
-" nmap <Space>ba :AllBrowserReloadStart<CR>
-" nmap <Space>bA :AllBrowserReloadStop<CR>
-
-"" livedown
-"" should markdown preview get shown automatically upon opening markdown buffer
-"let g:livedown_autorun = 0
-"
-"" should the browser window pop-up upon previewing
-"let g:livedown_open = 1
-"
-"" the port on which Livedown server will run
-"let g:livedown_port = 1337
 
 " ag
 nmap <Space><Space> :Ag <c-r>=expand("<cword>")<cr><cr>
@@ -417,9 +395,9 @@ autocmd BufNewFile,BufRead *.rake set shiftwidth=2
 autocmd BufNewFile,BufRead *.rake set softtabstop=2
 autocmd BufNewFile,BufRead *.rake set tabstop=2
 
-autocmd BufNewFile,BufRead *.log set shiftwidth=2
-autocmd BufNewFile,BufRead *.log set softtabstop=2
-autocmd BufNewFile,BufRead *.log set tabstop=2
+autocmd BufNewFile,BufRead *.txt set shiftwidth=2
+autocmd BufNewFile,BufRead *.txt set softtabstop=2
+autocmd BufNewFile,BufRead *.txt set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
