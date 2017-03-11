@@ -257,6 +257,6 @@ ciopen() {
   fi
 }
 
-# if type zprof > /dev/null 2>&1; then
-#       zprof | less
-# fi
+function agvim () {
+  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
