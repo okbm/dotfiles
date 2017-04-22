@@ -31,6 +31,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('vim-scripts/gitignore')
   call dein#add('szw/vim-tags')
   call dein#add('aereal/vim-colors-japanesque')
+  call dein#add('christoomey/vim-tmux-navigator')
 
   " ruby
   call dein#add( 'tpope/vim-rails')
@@ -325,6 +326,7 @@ nnoremap <silent> ua :<C-u>UniteWithBufferDir -buffer-name=files bufferfile_mru 
 " grep
 nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
