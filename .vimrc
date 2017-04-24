@@ -31,6 +31,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('vim-scripts/gitignore')
   call dein#add('szw/vim-tags')
   call dein#add('aereal/vim-colors-japanesque')
+  call dein#add('junegunn/vim-easy-align')
 
   " ruby
   call dein#add( 'tpope/vim-rails')
@@ -266,6 +267,9 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " SuperTab like snippets behavior.
 "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"

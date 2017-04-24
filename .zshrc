@@ -94,7 +94,7 @@ alias fp='find . -type f -name "*.php" | xargs grep --color -i '
 alias glist='cd $(ghq list -p | peco)'
 alias gopen='gh-open $(ghq list -p | peco)'
 alias mux='tmuxinator'
-alias vim='nvim'
+#alias vim='nvim'
 
 # -------------------------------------
 # プロンプト
@@ -177,6 +177,13 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+# peco
+function peco-select-vim() {
+    ag "$@" . | peco --exec 'awk -F : '"'"'{print "+" $2 " " $1}'"'"' | xargs less -N '
+}
+zle -N peco-select-vim
+bindkey '^f' peco-select-vim
+
 # vim & ag
 function agvim () {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
@@ -256,7 +263,4 @@ ciopen() {
     open $(echo $result | awk '{print $2}')
   fi
 }
-
-function agvim () {
-  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
