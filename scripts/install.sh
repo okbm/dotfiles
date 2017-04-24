@@ -52,6 +52,7 @@ brew install tmux      || true
 brew install markdown  || true
 brew install nkf       || true
 brew install ag        || true
+brew install fzf       || true
 brew install mercurial || true
 brew install ttyrec    || true
 brew install reattach-to-user-namespace || true
@@ -91,6 +92,7 @@ brew cask install google-japanese-ime || true
 brew cask install caskroom/cask/night-owl || true
 
 brew cask install witch              || true
+brew cask install clipy              || true
 brew cask install bettertouchtool    || true
 brew cask install appcleaner         || true
 brew cask install karabiner          || true

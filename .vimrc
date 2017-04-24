@@ -22,7 +22,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/neocomplcache.vim')
   call dein#add('scrooloose/nerdtree')
   call dein#add('scrooloose/syntastic')
-  call dein#add('kien/ctrlp.vim')
+  " call dein#add('kien/ctrlp.vim')
   call dein#add('thinca/vim-quickrun')
   call dein#add('yuroyoro/smooth_scroll.vim')
   call dein#add('altercation/vim-colors-solarized')
@@ -32,6 +32,9 @@ if dein#load_state(s:dein_dir)
   call dein#add('szw/vim-tags')
   call dein#add('aereal/vim-colors-japanesque')
   call dein#add('junegunn/vim-easy-align')
+  call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('junegunn/fzf.vim')
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 
   " ruby
   call dein#add( 'tpope/vim-rails')
@@ -203,10 +206,10 @@ nnoremap 0 :<C-u>call append(expand('.'), '')<Cr>j
 nmap <F6> <ESC>i<C-R>=strftime("%Y-%m-%d (%a)")<CR><CR>
 
 " 全角文字にしたときに赤くする
- if has('multi_byte_ime') || has('xim') 
-     highlight Cursor guifg=NONE guibg=White
-     highlight CursorIM guifg=NONE guibg=DarkRed
- endif
+if has('multi_byte_ime') || has('xim') 
+  highlight Cursor guifg=NONE guibg=White
+  highlight CursorIM guifg=NONE guibg=DarkRed
+endif
 
 " クリップボードにコピー
 " set clipboard=unnamed,autoselect
@@ -214,20 +217,35 @@ set clipboard+=unnamed
 
 "ctrl-pでのタグを消さない
 "let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_max_height          = 20
-let g:ctrlp_user_command = 'ag %s -l'
+" let g:ctrlp_max_height          = 20
+" let g:ctrlp_user_command = 'ag %s -l'
+" 
+" let g:ctrlp_use_caching = 0
+" if executable('ag')
+"     set grepprg=ag\ --nogroup\ --nocolor
+" 
+"     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" else
+"   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+"   let g:ctrlp_prompt_mappings = {
+"     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+"     \ }
+" endif
 
-let g:ctrlp_use_caching = 0
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
+" fzf
+set rtp+=~/.fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
-endif
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+:command! ProjectFiles execute 'Files' s:find_git_root()
+nnoremap <silent> <C-p> :ProjectFiles<CR>
+nnoremap <silent> <M-p> :History<CR>
 
 " ディレクトリを移動
 set autochdir
@@ -281,7 +299,6 @@ xmap ga <Plug>(EasyAlign)
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
@@ -327,8 +344,11 @@ nnoremap <silent> um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ua :<C-u>UniteWithBufferDir -buffer-name=files bufferfile_mru bookmark file<CR>
 
 " grep
-nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+"nnoremap <silent> ,g :<C-u>Unite grep:<C-r>=expand(system('git rev-parse --show-toplevel 2> /dev/null')[:-2]) <CR>
+nnoremap <silent> ,g :<C-u>Unite grep: -buffer-name=search-buffer<CR>
+nnoremap <silent> ug :<C-u>Unite grep: -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,r :<C-u>UniteResume search-buffer<CR>
+vnoremap /g y:Unite grep::-iRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
 
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
