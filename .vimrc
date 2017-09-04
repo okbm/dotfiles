@@ -1,4 +1,5 @@
 " dein
+" call dein#install()
 if &compatible
   set nocompatible
 endif
@@ -22,7 +23,6 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/neocomplcache.vim')
   call dein#add('scrooloose/nerdtree')
   call dein#add('scrooloose/syntastic')
-  " call dein#add('kien/ctrlp.vim')
   call dein#add('thinca/vim-quickrun')
   call dein#add('yuroyoro/smooth_scroll.vim')
   call dein#add('altercation/vim-colors-solarized')
@@ -33,14 +33,15 @@ if dein#load_state(s:dein_dir)
   call dein#add('aereal/vim-colors-japanesque')
   call dein#add('junegunn/vim-easy-align')
   call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('ruanyl/vim-gh-line')
   call dein#add('junegunn/fzf.vim')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 
   " ruby
-  call dein#add( 'tpope/vim-rails')
-  call dein#add( 'tpope/vim-bundler')
-  call dein#add( 'tpope/vim-endwise')
-  call dein#add( 'ruby-matchit')
+  call dein#add('tpope/vim-rails')
+  call dein#add('tpope/vim-bundler')
+  call dein#add('tpope/vim-endwise')
+  call dein#add('ruby-matchit')
 
   call dein#end()
   call dein#save_state()
@@ -372,6 +373,12 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
+
+
+" vim-gh-line
+let g:gh_line_map_default = 0
+let g:gh_line_map = '<leader>fh'
+let g:gh_open_command = 'open '
 
 "-------------------------------------------
 set expandtab

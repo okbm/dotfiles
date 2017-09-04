@@ -23,6 +23,7 @@ eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 export TERM=xterm-256color
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Vi ライクな操作が好みであれば `bindkey -v` とする
 bindkey -e
@@ -48,8 +49,11 @@ setopt extended_glob
 # 入力したコマンドがすでにコマンド履歴に含まれる場合、履歴から古いほうのコマンドを削除する
 # コマンド履歴とは今まで入力したコマンドの一覧のことで、上下キーでたどれる
 setopt hist_ignore_all_dups
-# 履歴ファイルの保存先
 
+# 重複を記録しない
+ setopt hist_ignore_dups
+
+# 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
 
 # メモリに保存される履歴の件数
