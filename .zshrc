@@ -51,7 +51,7 @@ setopt extended_glob
 setopt hist_ignore_all_dups
 
 # 重複を記録しない
- setopt hist_ignore_dups
+setopt hist_ignore_dups
 
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
