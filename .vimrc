@@ -1,5 +1,4 @@
 " dein
-" call dein#install()
 if &compatible
   set nocompatible
 endif
@@ -23,6 +22,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/neocomplcache.vim')
   call dein#add('scrooloose/nerdtree')
   call dein#add('scrooloose/syntastic')
+  " call dein#add('kien/ctrlp.vim')
   call dein#add('thinca/vim-quickrun')
   call dein#add('yuroyoro/smooth_scroll.vim')
   call dein#add('altercation/vim-colors-solarized')
@@ -31,9 +31,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('vim-scripts/gitignore')
   call dein#add('szw/vim-tags')
   call dein#add('aereal/vim-colors-japanesque')
-  call dein#add('junegunn/vim-easy-align')
   call dein#add('christoomey/vim-tmux-navigator')
-  call dein#add('ruanyl/vim-gh-line')
   call dein#add('junegunn/fzf.vim')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 
@@ -287,9 +285,6 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
-
 " SuperTab like snippets behavior.
 "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -374,12 +369,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 
-
-" vim-gh-line
-let g:gh_line_map_default = 0
-let g:gh_line_map = '<leader>fh'
-let g:gh_open_command = 'open '
-
 "-------------------------------------------
 set expandtab
 autocmd BufNewFile,BufRead *.yml set shiftwidth=2
@@ -429,6 +418,10 @@ autocmd BufNewFile,BufRead *.rake set tabstop=2
 autocmd BufNewFile,BufRead *.txt set shiftwidth=2
 autocmd BufNewFile,BufRead *.txt set softtabstop=2
 autocmd BufNewFile,BufRead *.txt set tabstop=2
+
+autocmd BufNewFile,BufRead *.html set shiftwidth=2
+autocmd BufNewFile,BufRead *.html set softtabstop=2
+autocmd BufNewFile,BufRead *.html set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
