@@ -1,27 +1,23 @@
 # 環境設定周り
 export LANG=ja_JP.UTF-8
-export EDITOR=/usr/bin/vim
-
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init - zsh)"
 export PATH=/usr/local/bin:$PATH
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/usr/local/Cellar/"
-export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
+export TERM=xterm-256color
+
+# その他パス
+# export PATH=$PATH:$HOME/.nodebrew/current/bin
+# export NODEBREW_ROOT=$HOME/.nodebrew
+# export PATH="/usr/local/heroku/bin:$PATH"
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# eval "$(direnv hook zsh)"
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-export PATH=$PATH:$HOME/.nodebrew/current/bin
-export NODEBREW_ROOT=$HOME/.nodebrew
-
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(direnv hook zsh)"
+export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
-export TERM=xterm-256color
+export PATH=$HOME/.rbenv/bin:$PATH
+export PATH="$PATH:/usr/local/mysql/bin"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -267,4 +263,3 @@ ciopen() {
     open $(echo $result | awk '{print $2}')
   fi
 }
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
