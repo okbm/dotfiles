@@ -31,11 +31,11 @@
     #log = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
     list = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
     pl = !git pull && git submodule update --init
-    see = browse
     brr = browse-remote
+    see = browse
+    week = log --oneline --since=1.week --author=okbm --no-merges  --decorate
     clean-marged = branch --merged | grep -v '^*' | xargs git branch -d
     mypr = !hub browse -- pulls/$(git config user.name)
-
 [user]
     name = okbm
     email = freezemoon.s@gmail.com
@@ -50,5 +50,11 @@
 [ghq]
     root = ~/.ghq
     root = ~/.go/src
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
 [ghi]
-	token = !security find-internet-password -a okbm -s github.com -l 'ghi token' -w
+    token = !security find-internet-password -a okbm -s github.com -l 'ghi token' -w
+[credential]
+    helper = osxkeychain
