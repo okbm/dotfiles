@@ -1,4 +1,5 @@
 " dein
+":call dein#install()
 if &compatible
   set nocompatible
 endif
@@ -34,6 +35,9 @@ if dein#load_state(s:dein_dir)
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('junegunn/fzf.vim')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+  " call dein#add('pangloss/vim-javascript')
+  " call dein#add('taichouchou2/vim-javascript')
+  call dein#add('othree/yajs.vim', {'autoload':{'filetypes':['javascript']}})
 
   " ruby
   call dein#add('tpope/vim-rails')
