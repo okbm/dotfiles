@@ -34,8 +34,6 @@
     brr = browse-remote
     see = browse
     week = log --oneline --since=1.week --author=okbm --no-merges  --decorate
-    clean-marged = branch --merged | grep -v '^*' | xargs git branch -d
-    mypr = !hub browse -- pulls/$(git config user.name)
 [user]
     name = okbm
     email = freezemoon.s@gmail.com
@@ -58,3 +56,5 @@
     token = !security find-internet-password -a okbm -s github.com -l 'ghi token' -w
 [credential]
     helper = osxkeychain
+[commit]
+    template = ~/.gitmessage
