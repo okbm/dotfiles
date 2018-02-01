@@ -52,11 +52,11 @@ curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-
 mv git-prompt.sh ~/.git-prompt.sh
 
 # tmuxinator
-# curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash
-# mv tmuxinator.bash ~/.tmuxinator.bash
-
 curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh
 mv tmuxinator.zsh ~/.tmuxinator.zsh
+
+# curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash
+# mv tmuxinator.bash ~/.tmuxinator.bash
 
 # mux work で実行
 mkdir -p ~/.tmuxinator
@@ -90,10 +90,3 @@ if [ `uname` = "Darwin" ]; then
     # dotfilesの表示
     defaults write com.apple.finder AppleShowAllFiles true; killall finder
 fi
-
-# Ricty(未検証)
-#    mkdir -p ~/tmp
-#    cd ~/tmp
-#    curl -L 'https://gist.github.com/ysaotome/7286145/raw/installing_ricty_on_MacOSX.sh' | bash
-#    cd .. && rm -rf ~/tmp
-
