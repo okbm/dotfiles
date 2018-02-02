@@ -325,6 +325,9 @@ let g:vim_tags_gems_tags_command = "ctags -R -f Gemfile.lock.tags `bundle show -
 set tags+=tags,Gemfile.lock.tags
 nnoremap <C-]> g<C-]>
 
+" ag
+let g:ag_working_path_mode="r"
+
 " HTMLの</で閉じタグを入れる
 autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
 
