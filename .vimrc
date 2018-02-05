@@ -38,6 +38,7 @@ if dein#load_state(s:dein_dir)
   " call dein#add('pangloss/vim-javascript')
   " call dein#add('taichouchou2/vim-javascript')
   call dein#add('othree/yajs.vim', {'autoload':{'filetypes':['javascript']}})
+  call dein#add('junegunn/vim-easy-align')
 
   " ruby
   call dein#add('tpope/vim-rails')
@@ -327,6 +328,10 @@ nnoremap <C-]> g<C-]>
 
 " ag
 let g:ag_working_path_mode="r"
+
+" vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " HTMLの</で閉じタグを入れる
 autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
