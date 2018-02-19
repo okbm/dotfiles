@@ -66,15 +66,15 @@ filetype indent on
 " item2用
 " download https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 syntax enable
-"set term=screen-256color
+set term=screen-256color
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme solarized
+" colorscheme solarized
 set t_Co=256
 
 " 行数の色
-hi LineNr ctermbg=0 ctermfg=0
-hi CursorLineNr ctermbg=255 ctermfg=0
+hi LineNr ctermbg=0 ctermfg=2
+hi CursorLineNr ctermbg=2 ctermfg=0
 " set cursorline
 " hi clear CursorLine
 
@@ -216,8 +216,8 @@ if has('multi_byte_ime') || has('xim')
 endif
 
 " クリップボードにコピー
-" set clipboard=unnamed,autoselect
-set clipboard+=unnamed
+set clipboard=unnamed,autoselect
+" set clipboard+=unnamed
 
 "ctrl-pでのタグを消さない
 "let g:ctrlp_clear_cache_on_exit = 0

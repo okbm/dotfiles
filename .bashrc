@@ -54,3 +54,5 @@ fi
 if [ -f $HOME/local/python-3.4/bin ] ; then
     export PATH=$HOME/local/python-3.4/bin:$PATH
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
