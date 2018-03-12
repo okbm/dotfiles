@@ -36,7 +36,7 @@
     week = log --oneline --since=1.week --author=okbm --no-merges  --decorate
 [user]
     name = okbm
-    email = freezemoon.s@gmail.com
+    email = masayoshiokabe.321@gmail.com
 [github]
     user = okbm
 [web]
