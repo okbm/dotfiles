@@ -66,6 +66,7 @@ brew install go               || true
 brew install pyenv-virtualenv || true
 # brew install python3          || true
 # brew install scala            || true
+brew install vim --with-override-system-vi || true
 
 ## DevOps
 brew install docker      || true
@@ -92,6 +93,7 @@ brew cask install coteditor          || true
 brew cask install coderunner         || true
 brew cask install macdown            || true
 brew cask install shiftit            || true
+brew cask install flux               || true
 
 # brew cask install hipchat       || true
 # brew cask install xtrafinder    || true

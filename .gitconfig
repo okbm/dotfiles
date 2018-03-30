@@ -34,6 +34,7 @@
     brr = browse-remote
     see = browse
     week = log --oneline --since=1.week --author=okbm --no-merges  --decorate
+    showpr = "!f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
 [user]
     name = okbm
     email = masayoshiokabe.321@gmail.com

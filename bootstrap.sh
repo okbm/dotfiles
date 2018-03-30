@@ -25,15 +25,6 @@ done
 # vim
 mkdir -p ~/.vim/dein
 
-# mkdir -p ~/.vim/bundle
-# if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
-#     git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-# fi
-#
-# if [ ! -d ~/.vim/bundle/vimproc ]; then
-#     git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
-# fi
-
 # tmux
 if [ ! -d ~/.solarized ]; then
     mkdir ~/.solarized
@@ -44,19 +35,12 @@ fi
 mkdir -p ~/.peco
 cp .peco/config.json ~/.peco/
 
-# gitのブランチを表示する
-# curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-# mv git-completion.bash ~/.git-completion.bash
-
 curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 mv git-prompt.sh ~/.git-prompt.sh
 
 # tmuxinator
 curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh
 mv tmuxinator.zsh ~/.tmuxinator.zsh
-
-# curl -O https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash
-# mv tmuxinator.bash ~/.tmuxinator.bash
 
 # mux work で実行
 mkdir -p ~/.tmuxinator
@@ -76,7 +60,7 @@ EOF
 # brew
 if [ `uname` = "Darwin" ]; then
     # gem
-    sudo gem install tmuxinator
+    # sudo gem install tmuxinator
 
     # homebrew
     sudo -v
