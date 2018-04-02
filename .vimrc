@@ -434,6 +434,10 @@ autocmd BufNewFile,BufRead *.txt set tabstop=2
 autocmd BufNewFile,BufRead *.html set shiftwidth=2
 autocmd BufNewFile,BufRead *.html set softtabstop=2
 autocmd BufNewFile,BufRead *.html set tabstop=2
+
+autocmd BufNewFile,BufRead *.ts set shiftwidth=2
+autocmd BufNewFile,BufRead *.ts set softtabstop=2
+autocmd BufNewFile,BufRead *.ts set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
