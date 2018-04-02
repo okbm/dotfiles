@@ -73,4 +73,6 @@ if [ `uname` = "Darwin" ]; then
     # config
     # dotfilesの表示
     defaults write com.apple.finder AppleShowAllFiles true; killall finder
+    defaults write -g InitialKeyRepeat -int 9
+    defaults write -g KeyRepeat -int 1
 fi
