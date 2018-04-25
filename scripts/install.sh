@@ -94,6 +94,7 @@ brew cask install coderunner         || true
 brew cask install macdown            || true
 brew cask install shiftit            || true
 brew cask install flux               || true
+brew cask install psequel            || true
 
 # brew cask install hipchat       || true
 # brew cask install xtrafinder    || true
