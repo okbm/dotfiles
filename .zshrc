@@ -1,26 +1,3 @@
-# 環境設定周り
-export LANG=ja_JP.UTF-8
-export PATH=/usr/local/bin:$PATH
-export PATH="$PATH:/usr/local/Cellar/"
-export TERM=xterm-256color
-
-# その他パス
-# export PATH=$PATH:$HOME/.nodebrew/current/bin
-# export NODEBREW_ROOT=$HOME/.nodebrew
-# export PATH="/usr/local/heroku/bin:$PATH"
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-# eval "$(direnv hook zsh)"
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH="$HOME/.pyenv/bin:$PATH"
-export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
-eval "$(pyenv init -)"
-eval "$(rbenv init -)"
-export PATH=$HOME/.rbenv/bin:$PATH
-export PATH="$PATH:/usr/local/mysql/bin"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Vi ライクな操作が好みであれば `bindkey -v` とする
 bindkey -e
 
@@ -127,7 +104,6 @@ SUSHI=$'\U1F363 '   # スシ
 PROMPT='
 %F{yellow}[%~]%f `vcs_echo`
 %(?.${SUSHI}.%F{red}$%f) '
-
 # -------------------------------------
 # その他
 # -------------------------------------
@@ -155,8 +131,6 @@ chpwd_functions+=chpwd_recent_dirs
 zstyle ":chpwd:*" recent-dirs-max 500
 zstyle ":chpwd:*" recent-dirs-default true
 zstyle ":completion:*" recent-dirs-insert always
-
-
 # -------------------------------------
 # ツール
 # -------------------------------------
@@ -264,3 +238,5 @@ ciopen() {
     open $(echo $result | awk '{print $2}')
   fi
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
