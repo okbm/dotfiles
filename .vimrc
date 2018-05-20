@@ -46,6 +46,10 @@ if dein#load_state(s:dein_dir)
   call dein#add('tpope/vim-endwise')
   call dein#add('ruby-matchit')
 
+  " git
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-rhubarb')
+
   call dein#end()
   call dein#save_state()
 endif
@@ -69,7 +73,7 @@ syntax enable
 set term=screen-256color
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-" colorscheme solarized
+colorscheme solarized
 set t_Co=256
 
 " 行数の色
@@ -406,6 +410,10 @@ autocmd BufNewFile,BufRead *.rb set tabstop=2
 autocmd BufNewFile,BufRead *.slim set shiftwidth=2
 autocmd BufNewFile,BufRead *.slim set softtabstop=2
 autocmd BufNewFile,BufRead *.slim set tabstop=2
+
+autocmd BufNewFile,BufRead *.haml set shiftwidth=2
+autocmd BufNewFile,BufRead *.haml set softtabstop=2
+autocmd BufNewFile,BufRead *.haml set tabstop=2
 
 autocmd BufNewFile,BufRead *.jbuilder set shiftwidth=2
 autocmd BufNewFile,BufRead *.jbuilder set softtabstop=2
