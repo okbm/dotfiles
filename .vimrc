@@ -47,17 +47,19 @@ if dein#load_state(s:dein_dir)
   call dein#add('ruby-matchit')
 
   " git
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-rhubarb')
+  " call dein#add('tpope/vim-fugitive')
+  " call dein#add('tpope/vim-rhubarb')
 
   call dein#end()
   call dein#save_state()
 endif
 
 filetype plugin indent on
-"*****************************************************************************
-"" Basic Setup
-"*****************************************************************************"
+
+"----------------------------------------------------------+
+" Basic Setup                                              |
+"----------------------------------------------------------+
+
 set nocompatible
 filetype off
 filetype indent on
@@ -89,9 +91,10 @@ set nu
 set autoindent
 
 " タブ入力がスペース
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
 
 "ステータスバー関係
 set ruler
@@ -136,7 +139,6 @@ set matchtime=3         " 対応括弧のハイライト表示を3秒にする
 
 " 対応括弧に'<'と'>'のペアを追加
 set matchpairs& matchpairs+=<:>
-"
 hi Search guibg=Yellow ctermbg=Yellow
 
 " スクロール高速
@@ -170,8 +172,18 @@ set wildmode=list:longest
 
 " 文字崩れ対応
 set ambiwidth=double
-"-------------------------------------------
-" キーバインド変更
+
+" クリップボードにコピー
+set clipboard=unnamed,autoselect
+" set clipboard+=unnamed
+
+" ディレクトリを移動
+set autochdir
+
+"----------------------------------------------------------+
+" キーバインド変更                                         |
+"----------------------------------------------------------+
+
 " 入力モード中に素早くjjと入力した場合はESCとみなす
 inoremap jj <Esc>
 
@@ -214,31 +226,18 @@ nnoremap 0 :<C-u>call append(expand('.'), '')<Cr>j
 nmap <F6> <ESC>i<C-R>=strftime("%Y-%m-%d (%a)")<CR><CR>
 
 " 全角文字にしたときに赤くする
-if has('multi_byte_ime') || has('xim') 
+if has('multi_byte_ime') || has('xim')
   highlight Cursor guifg=NONE guibg=White
   highlight CursorIM guifg=NONE guibg=DarkRed
 endif
 
-" クリップボードにコピー
-set clipboard=unnamed,autoselect
-" set clipboard+=unnamed
+" visual modeのu or Uでの文字置換をやめる
+vnoremap U <ESC>
+vnoremap u <ESC>
 
-"ctrl-pでのタグを消さない
-"let g:ctrlp_clear_cache_on_exit = 0
-" let g:ctrlp_max_height          = 20
-" let g:ctrlp_user_command = 'ag %s -l'
-" 
-" let g:ctrlp_use_caching = 0
-" if executable('ag')
-"     set grepprg=ag\ --nogroup\ --nocolor
-" 
-"     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-" else
-"   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-"   let g:ctrlp_prompt_mappings = {
-"     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-"     \ }
-" endif
+"----------------------------------------------------------+
+" pluginの設定                                             |
+"----------------------------------------------------------+
 
 " fzf
 set rtp+=~/.fzf
@@ -255,13 +254,7 @@ endfunction
 nnoremap <silent> <C-p> :ProjectFiles<CR>
 nnoremap <silent> <M-p> :History<CR>
 
-" ディレクトリを移動
-set autochdir
-"*****************************************************************************
-"" pluginの設定
-"*****************************************************************************"
 " neocomplcache
-
 " Disable AutoComplPop. Comment out this line if AutoComplPop is not installed.
 let g:acp_enableAtStartup = 0
 " Launches neocomplcache automatically on vim startup.
@@ -372,7 +365,7 @@ endif
 nmap <Space><Space> :Ag <c-r>=expand("<cword>")<cr><cr>
 nnoremap <space>/ :Ag 
 
-" nerdtree
+" NERDTREE
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
@@ -381,71 +374,15 @@ let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 "let g:NERDTreeWinSize = 50
+"let NERDTreeShowHidden = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 
-"-------------------------------------------
-set expandtab
-autocmd BufNewFile,BufRead *.yml set shiftwidth=2
-autocmd BufNewFile,BufRead *.yml set softtabstop=2
-autocmd BufNewFile,BufRead *.yml set tabstop=2
+" 起動時にNERDTREEを起動
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-autocmd BufNewFile,BufRead *.php set shiftwidth=4
-autocmd BufNewFile,BufRead *.php set softtabstop=4
-autocmd BufNewFile,BufRead *.php set tabstop=4
-
-autocmd BufNewFile,BufRead *.json set shiftwidth=2
-autocmd BufNewFile,BufRead *.json set softtabstop=2
-autocmd BufNewFile,BufRead *.json set tabstop=2
-
-autocmd BufNewFile,BufRead *.md set shiftwidth=2
-autocmd BufNewFile,BufRead *.md set softtabstop=2
-autocmd BufNewFile,BufRead *.md set tabstop=2
-
-autocmd BufNewFile,BufRead *.rb set shiftwidth=2
-autocmd BufNewFile,BufRead *.rb set softtabstop=2
-autocmd BufNewFile,BufRead *.rb set tabstop=2
-
-autocmd BufNewFile,BufRead *.slim set shiftwidth=2
-autocmd BufNewFile,BufRead *.slim set softtabstop=2
-autocmd BufNewFile,BufRead *.slim set tabstop=2
-
-autocmd BufNewFile,BufRead *.haml set shiftwidth=2
-autocmd BufNewFile,BufRead *.haml set softtabstop=2
-autocmd BufNewFile,BufRead *.haml set tabstop=2
-
-autocmd BufNewFile,BufRead *.jbuilder set shiftwidth=2
-autocmd BufNewFile,BufRead *.jbuilder set softtabstop=2
-autocmd BufNewFile,BufRead *.jbuilder set tabstop=2
-
-autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
-autocmd BufNewFile,BufRead Guardfile  set filetype=ruby
-autocmd BufNewFile,BufRead .pryrc     set filetype=ruby
-
-autocmd BufNewFile,BufRead *.log set shiftwidth=2
-autocmd BufNewFile,BufRead *.log set softtabstop=2
-autocmd BufNewFile,BufRead *.log set tabstop=2
-
-autocmd BufNewFile,BufRead *.css set shiftwidth=2
-autocmd BufNewFile,BufRead *.css set softtabstop=2
-autocmd BufNewFile,BufRead *.css set tabstop=2
-
-autocmd BufNewFile,BufRead *.rake set shiftwidth=2
-autocmd BufNewFile,BufRead *.rake set softtabstop=2
-autocmd BufNewFile,BufRead *.rake set tabstop=2
-
-autocmd BufNewFile,BufRead *.txt set shiftwidth=2
-autocmd BufNewFile,BufRead *.txt set softtabstop=2
-autocmd BufNewFile,BufRead *.txt set tabstop=2
-
-autocmd BufNewFile,BufRead *.html set shiftwidth=2
-autocmd BufNewFile,BufRead *.html set softtabstop=2
-autocmd BufNewFile,BufRead *.html set tabstop=2
-
-autocmd BufNewFile,BufRead *.ts set shiftwidth=2
-autocmd BufNewFile,BufRead *.ts set softtabstop=2
-autocmd BufNewFile,BufRead *.ts set tabstop=2
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
@@ -455,6 +392,9 @@ set laststatus=2
 hi StatusLine ctermfg=White ctermbg=Blue cterm=none
 au InsertEnter * hi StatusLine ctermfg=Black ctermbg=yellow cterm=none
 au InsertLeave * hi StatusLine ctermfg=White ctermbg=Blue cterm=none
+
+" 行が長すぎるときに切り詰める位置
+set statusline=%<
 
 "autocmd BufEnter,BufWritePost * call ErrorCheckStatusline()
 
