@@ -28,6 +28,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('yuroyoro/smooth_scroll.vim')
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('Lokaltog/vim-powerline')
+  " call dein#add('itchyny/lightline.vim')
   call dein#add('rking/ag.vim')
   call dein#add('vim-scripts/gitignore')
   call dein#add('szw/vim-tags')
@@ -150,6 +151,7 @@ set ttyfast
 
 " カーソルを行頭、行末でとまらないようにする
 "set whichwrap=b,s,h,l,<,>,[,]
+"set cursorline " カーソルラインをハイライト
 
 " 文字コード関連
 " UTF-8 対応
@@ -383,18 +385,25 @@ noremap <F3> :NERDTreeToggle<CR>
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+"https://qiita.com/5t111111/items/969783048467b733b62b
+command! RailsSpec echo s:rails_spec(expand('%:p'), getpos('.'))
+
+function! s:rails_spec(file, pos)
+  let l:cmd = printf('tmux-send-key bundle exec rspec %s:%d', a:file, a:pos[1])
+  return system(l:cmd)
+endfunction
+
+nnoremap <F4> :<C-u>RailsSpec<Return>
+
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
 
 " ステータスラインを常に表示,色変更
-set laststatus=2
-hi StatusLine ctermfg=White ctermbg=Blue cterm=none
-au InsertEnter * hi StatusLine ctermfg=Black ctermbg=yellow cterm=none
-au InsertLeave * hi StatusLine ctermfg=White ctermbg=Blue cterm=none
-
-" 行が長すぎるときに切り詰める位置
-set statusline=%<
+" set laststatus=2
+" hi StatusLine ctermfg=White ctermbg=Blue cterm=none
+" au InsertEnter * hi StatusLine ctermfg=Black ctermbg=yellow cterm=none
+" au InsertLeave * hi StatusLine ctermfg=White ctermbg=Blue cterm=none
 
 "autocmd BufEnter,BufWritePost * call ErrorCheckStatusline()
 
