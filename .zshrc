@@ -240,3 +240,4 @@ ciopen() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.zshenv ] && source ~/.zshenv

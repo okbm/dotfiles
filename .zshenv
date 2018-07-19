@@ -11,6 +11,7 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
+eval "$(direnv hook zsh)"
 export PATH=$HOME/.rbenv/bin:$PATH
 
 # 開発時に使うパス
