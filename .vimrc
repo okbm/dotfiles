@@ -36,20 +36,20 @@ if dein#load_state(s:dein_dir)
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('junegunn/fzf.vim')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-  " call dein#add('pangloss/vim-javascript')
-  " call dein#add('taichouchou2/vim-javascript')
   call dein#add('othree/yajs.vim', {'autoload':{'filetypes':['javascript']}})
   call dein#add('junegunn/vim-easy-align')
+  " call dein#add('pangloss/vim-javascript')
+  " call dein#add('taichouchou2/vim-javascript')
 
   " ruby
   call dein#add('tpope/vim-rails')
-  call dein#add('tpope/vim-bundler')
+  " call dein#add('tpope/vim-bundler')
   call dein#add('tpope/vim-endwise')
   call dein#add('ruby-matchit')
 
   " git
-  " call dein#add('tpope/vim-fugitive')
-  " call dein#add('tpope/vim-rhubarb')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-rhubarb')
 
   call dein#end()
   call dein#save_state()
@@ -80,8 +80,8 @@ colorscheme solarized
 set t_Co=256
 
 " 行数の色
-hi LineNr ctermbg=0 ctermfg=2
-hi CursorLineNr ctermbg=2 ctermfg=0
+" hi LineNr ctermbg=0 ctermfg=2
+" hi CursorLineNr ctermbg=2 ctermfg=0
 " set cursorline
 " hi clear CursorLine
 
@@ -186,8 +186,8 @@ set autochdir
 " キーバインド変更                                         |
 "----------------------------------------------------------+
 
-" 入力モード中に素早くjjと入力した場合はESCとみなす
-inoremap jj <Esc>
+" 入力モード中に素早くjjと入力した場合はESCとみなすと同時に保存
+inoremap <silent> jj <ESC>:<C-u>w<CR>
 
 "タグジャンプのボタンをCtrl + Bで飛ぶ
 "nnoremap <C-t> : <C-]>
@@ -236,11 +236,9 @@ endif
 " visual modeのu or Uでの文字置換をやめる
 vnoremap U <ESC>
 vnoremap u <ESC>
-
 "----------------------------------------------------------+
 " pluginの設定                                             |
 "----------------------------------------------------------+
-
 " fzf
 set rtp+=~/.fzf
 let g:fzf_action = {
@@ -289,9 +287,6 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-" SuperTab like snippets behavior.
-"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 "inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
@@ -319,12 +314,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" ctag
-let g:vim_tags_project_tags_command = "ctags -f tags -R . 2>/dev/null"
-let g:vim_tags_gems_tags_command = "ctags -R -f Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
-set tags+=tags,Gemfile.lock.tags
-nnoremap <C-]> g<C-]>
-
 " ag
 let g:ag_working_path_mode="r"
 
@@ -351,8 +340,7 @@ nnoremap <silent> um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ua :<C-u>UniteWithBufferDir -buffer-name=files bufferfile_mru bookmark file<CR>
 
 " grep
-"nnoremap <silent> ,g :<C-u>Unite grep:<C-r>=expand(system('git rev-parse --show-toplevel 2> /dev/null')[:-2]) <CR>
-nnoremap <silent> ,g :<C-u>Unite grep: -buffer-name=search-buffer<CR>
+nnoremap <Space>g :<C-u>Unite grep:<C-r>=expand(system('git rev-parse --show-toplevel 2> /dev/null')[:-2]) <CR>
 nnoremap <silent> ug :<C-u>Unite grep: -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> ,r :<C-u>UniteResume search-buffer<CR>
 vnoremap /g y:Unite grep::-iRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
@@ -381,10 +369,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 
-" 起動時にNERDTREEを起動
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 "https://qiita.com/5t111111/items/969783048467b733b62b
 command! RailsSpec echo s:rails_spec(expand('%:p'), getpos('.'))
 
@@ -394,7 +378,6 @@ function! s:rails_spec(file, pos)
 endfunction
 
 nnoremap <F4> :<C-u>RailsSpec<Return>
-
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
@@ -446,7 +429,6 @@ endfunction
 "----------------------------------------------------------+
 "  Program                                                 |
 "----------------------------------------------------------+
-
 " Python
 "let python_highlight_all = 1
 "autocmd FileType python set omnifunc=pythoncomplete
