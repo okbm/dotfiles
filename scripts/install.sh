@@ -66,10 +66,11 @@ brew install go               || true
 brew install pyenv-virtualenv || true
 # brew install python3          || true
 # brew install scala            || true
+brew install homebrew/php/php72
 brew install vim --with-override-system-vi || true
 
 ## DevOps
-brew install docker      || true
+# brew install docker      || true
 brew install boot2docker || true
 brew install packer      || true
 
@@ -96,6 +97,8 @@ brew cask install shiftit            || true
 brew cask install flux               || true
 brew cask install psequel            || true
 
+brew cask install docker-toolbox
+
 # brew cask install hipchat       || true
 # brew cask install xtrafinder    || true
 # brew cask install skype         || true
@@ -106,6 +109,7 @@ brew cask install psequel            || true
 # brew cask install caskroom/cask/night-owl || true
 # brew cask install bettertouchtool    || true
 # brew cask install messenger          || true
+brew cask install visual-studio-code   || true
 brew cask install tomighty           || true
 
 # Remove outdated versions

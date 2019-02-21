@@ -71,6 +71,7 @@ alias fp='find . -type f -name "*.php" | xargs grep --color -i '
 alias glist='cd $(ghq list -p | peco)'
 alias gopen='gh-open $(ghq list -p | peco)'
 alias mux='tmuxinator'
+alias open_vscode='open -a "Visual Studio Code"'
 #alias vim='nvim'
 
 # -------------------------------------

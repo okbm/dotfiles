@@ -224,6 +224,9 @@ nnoremap <C-m><C-b> <C-^>
 " http://vim-users.jp/2009/08/hack57/
 nnoremap 0 :<C-u>call append(expand('.'), '')<Cr>j
 
+" ヤンクしたあとに削除しても貼り付ける
+nnoremap gy "0P
+
 "<F6>  文頭にタイムスタンプを挿入してinsertモードへ移行
 nmap <F6> <ESC>i<C-R>=strftime("%Y-%m-%d (%a)")<CR><CR>
 
