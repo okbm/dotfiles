@@ -26,6 +26,9 @@ setopt hist_ignore_all_dups
 # 重複を記録しない
 setopt hist_ignore_dups
 
+# 余分な空白は詰めて記録
+setopt hist_reduce_blanks
+
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
 
@@ -100,11 +103,14 @@ function vcs_echo {
     echo "%{$color%}(%{$branch%})%{$reset_color%}" | sed -e s/@/"%F{yellow}@%f%{$color%}"/
 }
 # macしか使えん気がする…
-SUSHI=$'\U1F363 '   # スシ
+# pecoの挙動がおかしいので$にする
+# SUSHI=$'\U1F363'   # スシ
+SUSHI=$'$'
 
 PROMPT='
 %F{yellow}[%~]%f `vcs_echo`
 %(?.${SUSHI}.%F{red}$%f) '
+
 # -------------------------------------
 # その他
 # -------------------------------------
@@ -146,7 +152,8 @@ function peco-select-history() {
     BUFFER=$(history -n 1 | \
         eval $tac | \
         awk '!a[$0]++'  | \
-        peco --query "$LBUFFER")
+        peco --query "$LBUFFER" | \
+         sed 's/\\n/\n/')
     CURSOR=$#BUFFER
     zle clear-screen
 }
