@@ -7,9 +7,7 @@
 ```
 $ cat .bashrc >> EOF
 if [ -x "`which go`" ]; then
-    export GOROOT=`go env GOROOT`
-    export GOPATH=$HOME/.go
-    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+    export GOROOT=`go env GOROOT` export GOPATH=$HOME/.go export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 EOF
 
@@ -52,3 +50,8 @@ $ sudo gem install tmuxinator
 ## memo
 
 - tmuxの移動モードでvimが死んでて動かないかも
+- go周りあとで見直したほうがいいかも
+  - brew install --HEAD goenv
+  - brew uninstall go
+  - goenv install 1.13.6
+  - goenv local 1.13.6

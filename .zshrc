@@ -223,11 +223,17 @@ if [ -e /usr/local/share/zsh-completions ]; then
 fi
 
 # go
-if [ -x "`which go`" ]; then
-    export GOROOT=`go env GOROOT`
+# if [ -x "`which go`" ]; then
     export GOPATH=$HOME/.go
-    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-fi
+    export PATH=$PATH:$GOPATH/bin
+
+    # goenv
+    export GOENV_ROOT="$HOME/.goenv"
+    export PATH="$GOENV_ROOT/bin:$PATH"
+    eval "$(goenv init -)"
+    # export PATH="$GOROOT/bin:$PATH"
+    # export PATH="$PATH:$GOPATH/bin"
+# fi
 
 # ghq
 function ghq-list() {

@@ -63,6 +63,7 @@ brew install redis     || true
 brew install rbenv            || true
 brew install ruby-build       || true
 brew install go               || true
+brew install goenv            || true
 brew install pyenv-virtualenv || true
 # brew install python3          || true
 # brew install scala            || true
