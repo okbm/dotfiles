@@ -22,7 +22,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
   call dein#add('Shougo/neocomplcache.vim')
   call dein#add('scrooloose/nerdtree')
-  call dein#add('scrooloose/syntastic')
+  call dein#add('vim-syntastic/syntastic')
   " call dein#add('kien/ctrlp.vim')
   call dein#add('thinca/vim-quickrun')
   call dein#add('yuroyoro/smooth_scroll.vim')
@@ -40,6 +40,9 @@ if dein#load_state(s:dein_dir)
   call dein#add('junegunn/vim-easy-align')
   " call dein#add('pangloss/vim-javascript')
   " call dein#add('taichouchou2/vim-javascript')
+  call dein#add('posva/vim-vue')
+  call dein#add('hashivim/vim-terraform')
+  call dein#add('juliosueiras/vim-terraform-completion')
 
   " ruby
   call dein#add('tpope/vim-rails')
@@ -50,6 +53,7 @@ if dein#load_state(s:dein_dir)
   " git
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
+
 
   call dein#end()
   call dein#save_state()
@@ -316,6 +320,9 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType vue syntax sync fromstart
+" autocmd BufNewFile,BufRead *.{html,htm,vue*} set filetype=html
+" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
 " ag
 let g:ag_working_path_mode="r"
@@ -381,6 +388,45 @@ function! s:rails_spec(file, pos)
 endfunction
 
 nnoremap <F4> :<C-u>RailsSpec<Return>
+
+" vim-terraform
+let g:terraform_fmt_on_save = 1
+
+" vim-syntastic/syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
+  \ 'ruby', 'javascript','coffee', 'scss', 'html', 'haml', 'slim', 'sh',
+  \ 'spec', 'vim', 'zsh', 'sass', 'eruby'] }
+
+" let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_coffee_checkers = ['coffeelint']
+" let g:syntastic_scss_checkers = ['scss_lint']
+" let g:syntastic_ruby_checkers = ['rubocop']
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '⚠'
+
+" vue
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_vue_checkers = ['eslint']
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+    let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+    let g:syntastic_javascript_eslint_exec = local_eslint
+    let g:syntastic_vue_eslint_exec = local_eslint
+endif
 "----------------------------------------------------------+
 "  ステータスライン                                        |
 "----------------------------------------------------------+
