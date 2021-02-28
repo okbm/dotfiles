@@ -1,3 +1,6 @@
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.zshenv ] && source ~/.zshenv
+
 # Vi ライクな操作が好みであれば `bindkey -v` とする
 bindkey -e
 
@@ -143,17 +146,7 @@ zstyle ":completion:*" recent-dirs-insert always
 # -------------------------------------
 # peco
 function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(history -n 1 | \
-        eval $tac | \
-        awk '!a[$0]++'  | \
-        peco --query "$LBUFFER" | \
-         sed 's/\\n/\n/')
+    BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
@@ -253,5 +246,3 @@ ciopen() {
   fi
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.zshenv ] && source ~/.zshenv
