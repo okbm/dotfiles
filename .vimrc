@@ -48,7 +48,6 @@ if dein#load_state(s:dein_dir)
   call dein#add('tpope/vim-rails')
   " call dein#add('tpope/vim-bundler')
   call dein#add('tpope/vim-endwise')
-  call dein#add('ruby-matchit')
 
   " git
   call dein#add('tpope/vim-fugitive')
