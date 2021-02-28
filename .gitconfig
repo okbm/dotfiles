@@ -10,6 +10,8 @@
     editor = vim
 [push]
     default = current
+[pull]
+    rebase = false
 [alias]
     st = status
     co = checkout
