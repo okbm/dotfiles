@@ -208,7 +208,7 @@ function peco-cdr () {
     zle clear-screen
 }
 zle -N peco-cdr
-bindkey '^e' peco-cdr
+bindkey '^d' peco-cdr
 
 # brew install zsh-completions
 if [ -e /usr/local/share/zsh-completions ]; then
