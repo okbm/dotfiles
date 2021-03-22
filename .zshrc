@@ -208,7 +208,7 @@ function peco-cdr () {
     zle clear-screen
 }
 zle -N peco-cdr
-bindkey '^d' peco-cdr
+bindkey '^x' peco-cdr
 
 # brew install zsh-completions
 if [ -e /usr/local/share/zsh-completions ]; then
@@ -245,4 +245,3 @@ ciopen() {
     open $(echo $result | awk '{print $2}')
   fi
 }
-

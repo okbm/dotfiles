@@ -69,9 +69,10 @@ brew install pyenv-virtualenv || true
 # brew install scala            || true
 brew install homebrew/php/php72
 brew install vim --with-override-system-vi || true
+brew install fd
 
 ## DevOps
-# brew install docker      || true
+# brew install docker    || true
 brew install boot2docker || true
 brew install packer      || true
 
