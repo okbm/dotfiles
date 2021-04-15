@@ -1,5 +1,6 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshenv ] && source ~/.zshenv
+[ -f ~/.zshenv.ignore ] && source ~/.zshenv.ignore
 
 # Vi ライクな操作が好みであれば `bindkey -v` とする
 bindkey -e
@@ -214,19 +215,6 @@ bindkey '^x' peco-cdr
 if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
 fi
-
-# go
-# if [ -x "`which go`" ]; then
-    export GOPATH=$HOME/.go
-    export PATH=$PATH:$GOPATH/bin
-
-    # goenv
-    export GOENV_ROOT="$HOME/.goenv"
-    export PATH="$GOENV_ROOT/bin:$PATH"
-    eval "$(goenv init -)"
-    # export PATH="$GOROOT/bin:$PATH"
-    # export PATH="$PATH:$GOPATH/bin"
-# fi
 
 # ghq
 function ghq-list() {
