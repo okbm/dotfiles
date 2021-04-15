@@ -37,8 +37,8 @@ if dein#load_state(s:dein_dir)
   call dein#add('othree/yajs.vim', {'autoload':{'filetypes':['javascript']}})
   call dein#add('junegunn/vim-easy-align')
   call dein#add('posva/vim-vue')
-  call dein#add('hashivim/vim-terraform')
-  call dein#add('juliosueiras/vim-terraform-completion')
+  " call dein#add('hashivim/vim-terraform')
+  " call dein#add('juliosueiras/vim-terraform-completion')
 
   " ruby
   call dein#add('tpope/vim-rails')
