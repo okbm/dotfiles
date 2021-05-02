@@ -63,4 +63,4 @@
 [commit]
   template = ~/.gitmessage
 [split-diffs]
-  theme-name = github-light
+  theme-name = dark
