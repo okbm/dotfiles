@@ -1,63 +1,66 @@
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    grep = auto
-    color = auto
-    ui = auto
-[core]
-    excludesfile = ~/.gitignore
-    editor = vim
+  diff = auto
+  status = auto
+  branch = auto
+  grep = auto
+  color = auto
+  ui = auto
 [push]
-    default = current
+  default = current
 [pull]
-    rebase = false
+  rebase = false
 [alias]
-    st = status
-    co = checkout
-    ci = commit -v
-    cm = commit -m
-    di = diff
-    br = branch
-    puhs = push
-    psuh = push
-    pus = push
-    puh = push
-    pl = !git pull && git submodule update --init
-    pr = pull --rebase
-    undo = reset --soft HEAD^
-    clear = reset --hard HEAD
+  st = status
+  co = checkout
+  ci = commit -v
+  cm = commit -m
+  di = diff
+  br = branch
+  puhs = push
+  psuh = push
+  pus = push
+  puh = push
+  pl = !git pull && git submodule update --init
+  pr = pull --rebase
+  undo = reset --soft HEAD^
+  clear = reset --hard HEAD
 
-    today = log --oneline --since='12 hour ago'
-    graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-    #log = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
-    list = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
-    pl = !git pull && git submodule update --init
-    brr = browse-remote
-    see = browse
-    week = log --oneline --since=1.week --author=okbm --no-merges  --decorate
-    showpr = "!f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
+  today = log --oneline --since='12 hour ago'
+  graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  #log = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
+  list = log --pretty=format:\"%h %C(yellow)%ad%C(reset) | %s%C(red)%d%C(reset) %C(blue)[%an]%C(reset)\" --date=iso
+  pl = !git pull && git submodule update --init
+  brr = browse-remote
+  see = browse
+  week = log --oneline --since=1.week --author=okbm --no-merges  --decorate
+  showpr = "!f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
 [user]
-    name = okbm
-    email = masayoshiokabe.321@gmail.com
+  name = okbm
+  email = masayoshiokabe.321@gmail.com
 [github]
-    user = okbm
+  user = okbm
 [web]
-    browser = google-chrome
-[browse-remote "github.com"]
-    top = https://{host}/{path}
-    ref = https://{host}/{path}/tree/{short_ref}
-    rev = https://{host}/{path}/commit/{commit}
-[ghq]
-    root = ~/.ghq
-    root = ~/.go/src
+  browser = google-chrome
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+  pager = git-split-diffs --color | less -RFX
 [filter "lfs"]
-    clean = git-lfs clean %f
-    smudge = git-lfs smudge %f
-    required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[browse-remote "github.com"]
+  top = https://{host}/{path}
+  ref = https://{host}/{path}/tree/{short_ref}
+  rev = https://{host}/{path}/commit/{commit}
+[ghq]
+  root = ~/.ghq
+  root = ~/.go/src
 [ghi]
-    token = !security find-internet-password -a okbm -s github.com -l 'ghi token' -w
+  token = !security find-internet-password -a okbm -s github.com -l 'ghi token' -w
 [credential]
-    helper = osxkeychain
+  helper = osxkeychain
 [commit]
-    template = ~/.gitmessage
+  template = ~/.gitmessage
+[split-diffs]
+  theme-name = github-light
