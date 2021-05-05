@@ -25,8 +25,8 @@ $ cd ~/.go/src/github.com/okbm/dotfiles
 ```
 $ sh bootstrap.sh
 
-$ rbenv install 2.5.0
-$ rbenv global 2.5.1
+$ rbenv install 3.0.1
+$ rbenv global 3.0.1
 $ sudo gem install tmuxinator
 
 ```
@@ -48,10 +48,17 @@ $ sudo gem install tmuxinator
   - https://raw.githubusercontent.com/joshdick/onedark.vim/master/term/One%20Dark.itermcolors
 
 ## memo
-
-- tmuxの移動モードでvimが死んでて動かないかも
 - go周りあとで見直したほうがいいかも
   - brew install --HEAD goenv
   - brew uninstall go
   - goenv install 1.13.6
   - goenv local 1.13.6
+- node周りのinstallが書いてない
+  - nodebrew
+
+```
+$ sudo npm ls -g
+├── git-split-diffs@0.10.0
+├── npm-check-updates@11.5.7
+└── npm@7.10.0
+```
