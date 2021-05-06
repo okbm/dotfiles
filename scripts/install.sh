@@ -28,7 +28,6 @@ brew install zsh   || true
 ## Git
 brew install git   || true
 brew install hub   || true
-brew install gist  || true
 brew install tig   || true
 brew install gibo  || true
 brew install peco  || true
@@ -44,7 +43,6 @@ brew install rmtrash   || true
 brew install wget      || true
 brew install curl      || true
 brew install proctools || true
-brew install tree      || true
 brew install openssl   || true
 brew install libyaml   || true
 brew install readline  || true
@@ -57,24 +55,17 @@ brew install mercurial || true
 brew install ttyrec    || true
 brew install reattach-to-user-namespace || true
 brew install jq        || true
-brew install redis     || true
 
 ## Languages
 brew install rbenv            || true
 brew install ruby-build       || true
-brew install go               || true
 brew install goenv            || true
 brew install pyenv-virtualenv || true
-# brew install python3          || true
-# brew install scala            || true
-brew install homebrew/php/php72
 brew install vim --with-override-system-vi || true
 brew install fd
 
 ## DevOps
-# brew install docker    || true
-brew install boot2docker || true
-brew install packer      || true
+brew install docker    || true
 
 ## Image
 brew install imagemagick || true
@@ -84,39 +75,19 @@ brew cask install google-chrome || true
 brew cask install iterm2        || true
 brew cask install dropbox       || true
 brew cask install alfred        || true
-brew cask install dash          || true
 brew cask install slack         || true
 brew cask install google-japanese-ime || true
 
 brew cask install witch              || true
 brew cask install clipy              || true
 brew cask install appcleaner         || true
-brew cask install karabiner          || true
 brew cask install coteditor          || true
-brew cask install coderunner         || true
 brew cask install macdown            || true
 brew cask install shiftit            || true
 brew cask install flux               || true
 brew cask install psequel            || true
 
-brew cask install docker-toolbox
-
-# brew cask install hipchat       || true
-# brew cask install xtrafinder    || true
-# brew cask install skype         || true
-# brew cask install sourcetree    || true
-# brew cask install sublime-text  || true
-# brew cask install virtualbox    || true
-# brew cask install vagrant       || true
-# brew cask install caskroom/cask/night-owl || true
-# brew cask install bettertouchtool    || true
-# brew cask install messenger          || true
-brew cask install visual-studio-code   || true
-brew cask install tomighty           || true
-
-# Remove outdated versions
-brew cleanup
+# Remove outdated versions brew cleanup
 
 ## other
-go get github.com/motemen/ghq
-go get github.com/sugyan/ttygif
+# go get github.com/sugyan/ttygif
