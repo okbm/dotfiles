@@ -12,11 +12,10 @@ brew update || true
 brew upgrade || true
 
 # Add Repository
-brew tap homebrew/versions    || true
-brew tap phinze/homebrew-cask || true
-brew tap homebrew/binary      || true
-brew tap thoughtbot/formulae  || true
-brew tap peco/peco            || true
+brew tap homebrew/homebrew-core || true
+# brew tap phinze/homebrew-cask || true
+# brew tap homebrew/binary      || true
+# brew tap thoughtbot/formulae  || true
 
 brew install caskroom/cask/brew-cask
 
@@ -70,22 +69,22 @@ brew install docker    || true
 brew install imagemagick || true
 
 # Casks
-brew cask install google-chrome || true
-brew cask install iterm2        || true
-brew cask install dropbox       || true
-brew cask install alfred        || true
-brew cask install slack         || true
-brew cask install google-japanese-ime || true
+brew install google-chrome || true
+brew install iterm2        || true
+brew install dropbox       || true
+brew install alfred        || true
+brew install slack         || true
+brew install google-japanese-ime || true
 
-brew cask install witch              || true
-brew cask install clipy              || true
-brew cask install appcleaner         || true
-brew cask install coteditor          || true
-brew cask install macdown            || true
-brew cask install shiftit            || true
-brew cask install flux               || true
-brew cask install psequel            || true
-
+brew install witch              || true
+brew install clipy              || true
+brew install appcleaner         || true
+brew install coteditor          || true
+brew install macdown            || true
+brew install shiftit            || true
+brew install flux               || true
+brew install psequel            || true
+brew install visual-studio-code || true
 # Remove outdated versions brew cleanup
 
 ## other
