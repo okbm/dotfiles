@@ -17,7 +17,7 @@ eval "$(direnv hook zsh)"
 export PATH=$HOME/.rbenv/bin:$PATH
 
 # goenv
-export GOPATH=$HOME/go
+export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
 
 export GOENV_ROOT="$HOME/.goenv"
