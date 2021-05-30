@@ -1,0 +1,89 @@
+{
+    "workbench.editor.enablePreview": false,
+    "workbench.sideBar.location": "left",
+
+    // ミニマップは非表示
+    "editor.minimap.enabled": false,
+    // vimの設定
+    // jjでノーマルモードに入る
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.visualstar": true,
+    "vim.hlsearch": true,
+    "vim.easymotion": true,
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+    // "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?_-、。「」【】『』（）！？　てにをはがのともへでや",
+
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": -1,
+
+    "[js]": {
+        "editor.tabSize": 2
+    },
+    "[ruby]": {
+        "editor.tabSize": 2
+    },
+    "[php]": {
+        "editor.tabSize": 2
+    },
+    "ruby.intellisense": "rubyLocate",
+    "ruby.codeCompletion": "rcodetools",
+    "ruby.lint": {
+        "ruby": true
+    },
+    "editor.tabSize": 2,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "php.validate.executablePath": "",
+    "editor.tabCompletion": "on",
+    "editor.detectIndentation": false,
+    "alignment.chars": {
+
+      ":": {
+        "spaceBefore": 0,
+        "spaceAfter": 1
+      },
+      "::": {
+        "spaceBefore": 0,
+        "spaceAfter": 0
+      },
+      "=": {
+        "spaceBefore": 1,
+        "spaceAfter": 1
+      },
+      "===": {
+        "spaceBefore": 1,
+        "spaceAfter": 1
+      },
+      "==": {
+        "spaceBefore": 1,
+        "spaceAfter": 1
+      },
+      "=>": {
+        "spaceBefore": 1,
+        "spaceAfter": 1
+      },
+      "+=": {
+        "spaceBefore": 1,
+        "spaceAfter": 1
+      },
+      "-=": {
+        "spaceBefore": 1,
+        "spaceAfter": 1
+      },
+      "*=": {
+        "spaceBefore": 1,
+        "spaceAfter": 1
+      },
+      "/=": {
+        "spaceBefore": 1,
+        "spaceAfter": 1
+      }
+    },
+}

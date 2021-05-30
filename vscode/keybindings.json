@@ -1,0 +1,14 @@
+// Place your key bindings in this file to override the defaults
+[
+    // サイドバーのカーソル切り替え
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.focusSideBar",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.focusFirstEditorGroup",
+        "when": "!editorFocus"
+    },
+]
