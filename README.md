@@ -54,6 +54,19 @@ $ sudo gem install tmuxinator
   - clipy
   - alfred
 
+# github関係
+
+```
+# create_key_name: id_rsa_github
+$ ssh-keygen -t rsa
+$ pbcopy < ~/.ssh/id_rsa_github.pub
+
+https://github.com/settings/keys
+sshの鍵を保存する
+
+$ ssh -T git@github.com
+```
+
 ## memo
 - go周りあとで見直したほうがいいかも
   - brew install --HEAD goenv
