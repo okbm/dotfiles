@@ -82,7 +82,7 @@ brew install appcleaner         || true
 brew install coteditor          || true
 brew install macdown            || true
 brew install shiftit            || true
-brew install flux               || true
+# brew install flux               || true
 brew install psequel            || true
 brew install visual-studio-code || true
 # Remove outdated versions brew cleanup

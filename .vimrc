@@ -74,7 +74,7 @@ syntax enable
 set term=screen-256color
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme solarized
+" colorscheme solarized
 set t_Co=256
 
 " 行数の色

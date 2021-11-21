@@ -2,8 +2,6 @@
 
 ## 事前準備
 - xcode install
-- ghqのセットアップ
-- https://golang.org/doc/installs
 - githubの鍵生成
   - https://dev.classmethod.jp/articles/github-mac-terminal-ssh-login/
 
@@ -13,6 +11,8 @@ $ xcode-select --install
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ echo 'export GOPATH=$HOME/.go' >> ~/.zshenv
 $ echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.zshenv
+$ brew install go
+$ zsh
 $ mkdir -p ~/.go/src
 $ mkdir .ghq
 $ curl -O https://raw.githubusercontent.com/okbm/dotfiles/master/.gitconfig >> ~/.gitconfig
@@ -48,8 +48,11 @@ $ sudo gem install tmuxinator
 - ディスプレイの照明を自動調整解除
 - フォント
   - https://github.com/edihbrandon/RictyDiminished
-- color schema
-  - https://raw.githubusercontent.com/joshdick/onedark.vim/master/term/One%20Dark.itermcolors
+- iterm
+  - setting -> profile -> color -> "solarized dark" にする
+- 初回起動
+  - clipy
+  - alfred
 
 ## memo
 - go周りあとで見直したほうがいいかも
