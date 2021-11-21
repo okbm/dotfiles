@@ -30,8 +30,16 @@ $ sh bootstrap.sh
 $ rbenv install 3.0.1
 $ rbenv global 3.0.1
 $ sudo gem install tmuxinator
+```
+
+## node
 
 ```
+$ curl -L git.io/nodebrew | perl - setup
+$ nodebrew install latest
+$ nodebrew use latest
+```
+
 
 ## ohter
 
@@ -65,6 +73,7 @@ https://github.com/settings/keys
 sshの鍵を保存する
 
 $ ssh -T git@github.com
+$ git remote set-url origin git@github.com:okbm/dotfiles.git
 ```
 
 ## memo
@@ -73,12 +82,4 @@ $ ssh -T git@github.com
   - brew uninstall go
   - goenv install 1.13.6
   - goenv local 1.13.6
-- node周りのinstallが書いてない
-  - nodebrew
 
-```
-$ sudo npm ls -g
-├── git-split-diffs@0.10.0
-├── npm-check-updates@11.5.7
-└── npm@7.10.0
-```
