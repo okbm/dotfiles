@@ -8,3 +8,5 @@ bind diff G !@hub browse -- commit/%(commit)
 # 水平分割したウィンドウの下画面サイズを % で指定
 set split-view-height = 80%
 set vertical-split = no
+
+set ignore-space = all
