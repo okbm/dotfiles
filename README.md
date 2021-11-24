@@ -2,8 +2,6 @@
 
 ## 事前準備
 - xcode install
-- ghqのセットアップ
-- https://golang.org/doc/installs
 - githubの鍵生成
   - https://dev.classmethod.jp/articles/github-mac-terminal-ssh-login/
 
@@ -13,6 +11,8 @@ $ xcode-select --install
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ echo 'export GOPATH=$HOME/.go' >> ~/.zshenv
 $ echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.zshenv
+$ brew install go
+$ zsh
 $ mkdir -p ~/.go/src
 $ mkdir .ghq
 $ curl -O https://raw.githubusercontent.com/okbm/dotfiles/master/.gitconfig >> ~/.gitconfig
@@ -30,8 +30,16 @@ $ sh bootstrap.sh
 $ rbenv install 3.0.1
 $ rbenv global 3.0.1
 $ sudo gem install tmuxinator
+```
+
+## node
 
 ```
+$ curl -L git.io/nodebrew | perl - setup
+$ nodebrew install latest
+$ nodebrew use latest
+```
+
 
 ## ohter
 
@@ -48,8 +56,25 @@ $ sudo gem install tmuxinator
 - ディスプレイの照明を自動調整解除
 - フォント
   - https://github.com/edihbrandon/RictyDiminished
-- color schema
-  - https://raw.githubusercontent.com/joshdick/onedark.vim/master/term/One%20Dark.itermcolors
+- iterm
+  - setting -> profile -> color -> "solarized dark" にする
+- 初回起動
+  - clipy
+  - alfred
+
+# github関係
+
+```
+# create_key_name: id_rsa_github
+$ ssh-keygen -t rsa
+$ pbcopy < ~/.ssh/id_rsa_github.pub
+
+https://github.com/settings/keys
+sshの鍵を保存する
+
+$ ssh -T git@github.com
+$ git remote set-url origin git@github.com:okbm/dotfiles.git
+```
 
 ## memo
 - go周りあとで見直したほうがいいかも
@@ -57,12 +82,4 @@ $ sudo gem install tmuxinator
   - brew uninstall go
   - goenv install 1.13.6
   - goenv local 1.13.6
-- node周りのinstallが書いてない
-  - nodebrew
 
-```
-$ sudo npm ls -g
-├── git-split-diffs@0.10.0
-├── npm-check-updates@11.5.7
-└── npm@7.10.0
-```
