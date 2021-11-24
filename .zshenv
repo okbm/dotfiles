@@ -11,9 +11,17 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/.pyenv/shims/python:$PATH"
 
 export PYTHONDONTWRITEBYTECODE=1 #pythonでpycファイルを作らない
-eval "$(pyenv init -)"
-eval "$(rbenv init -)"
-eval "$(direnv hook zsh)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
+
+if command -v direnv 1>/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
 export PATH=$HOME/.rbenv/bin:$PATH
 
 # goenv
@@ -23,7 +31,9 @@ export PATH=$GOPATH/bin:$PATH
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH=$HOME/.goenv/bin:$PATH
-eval "$(goenv init -)"
+if command -v goenv 1>/dev/null 2>&1; then
+  eval "$(goenv init -)"
+fi
 
 # 開発時に使うパス
 export PATH="$PATH:/usr/local/mysql/bin"
