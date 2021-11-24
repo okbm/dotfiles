@@ -49,6 +49,9 @@ if dein#load_state(s:dein_dir)
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
 
+  " color
+  call dein#add('tomasr/molokai')
+
   call dein#end()
   call dein#save_state()
 endif
@@ -60,22 +63,19 @@ filetype plugin indent on
 "----------------------------------------------------------+
 
 set nocompatible
-filetype off
+" filetype off
 filetype indent on
 
-"色の設定
+" color
+syntax enable
+colorscheme molokai
+set termguicolors
+set t_Co=256
+
+" 検索時の色
 " hi Search term=reverse ctermfg=black
 " hi Pmenu ctermfg=black
 " hi PmenuSel ctermfg=black
-
-" item2用
-" download https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
-syntax enable
-set term=screen-256color
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-" colorscheme solarized
-set t_Co=256
 
 " 行数の色
 " hi LineNr ctermbg=0 ctermfg=2
