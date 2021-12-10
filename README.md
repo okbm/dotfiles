@@ -76,6 +76,15 @@ $ ssh -T git@github.com
 $ git remote set-url origin git@github.com:okbm/dotfiles.git
 ```
 
+# vscode
+
+`code --list-extensions` で現在インストール済みの拡張を出す
+
+```
+$ cd vscode
+$ ./installExtensions.sh
+```
+
 ## memo
 - go周りあとで見直したほうがいいかも
   - brew install --HEAD goenv
