@@ -11,6 +11,7 @@ ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 octref.vetur
 oderwat.indent-rainbow
+quick-lint.quick-lint-js
 rebornix.ruby
 shardulm94.trailing-spaces
 streetsidesoftware.code-spell-checker
