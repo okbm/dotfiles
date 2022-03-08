@@ -10,3 +10,11 @@ set split-view-height = 80%
 set vertical-split = no
 
 set ignore-space = all
+
+# vim move
+bind generic <C-f> move-page-down
+bind generic <C-b> move-page-up
+bind generic g move-first-line
+bind main    G  none
+bind main    G  move-last-line
+bind generic G  move-last-line
