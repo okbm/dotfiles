@@ -2,8 +2,8 @@
 set main-view = id date author commit-title:graph=yes,refs=yes
 
 # hubコマンドが入ってたら、Gで差分をブラウザで表示する
-bind main G !@hub browse -- commit/%(commit)
-bind diff G !@hub browse -- commit/%(commit)
+bind main E !@hub browse -- commit/%(commit)
+bind diff E !@hub browse -- commit/%(commit)
 
 # 水平分割したウィンドウの下画面サイズを % で指定
 set split-view-height = 80%
