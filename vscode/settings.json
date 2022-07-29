@@ -60,7 +60,7 @@
       "ruby": true
   },
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "Night Owl (No Italics)",
   "php.validate.executablePath": "",
   "editor.tabCompletion": "on",
   "editor.detectIndentation": false,
