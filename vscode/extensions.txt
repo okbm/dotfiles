@@ -2,8 +2,8 @@ bmewburn.vscode-intelephense-client
 CoenraadS.bracket-pair-colorizer
 cpmcgrath.codealignment-vscode
 eamodio.gitlens
-felixfbecker.php-debug
 felixfbecker.php-intellisense
+janisdd.vscode-edit-csv
 jcbuisson.vue
 mhutchie.git-graph
 MS-CEINTL.vscode-language-pack-ja
@@ -13,7 +13,10 @@ octref.vetur
 oderwat.indent-rainbow
 quick-lint.quick-lint-js
 rebornix.ruby
+ritwickdey.LiveServer
+sdras.night-owl
 shardulm94.trailing-spaces
 streetsidesoftware.code-spell-checker
 vscodevim.vim
 wingrunr21.vscode-ruby
+xdebug.php-debug
