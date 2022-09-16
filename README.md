@@ -6,7 +6,6 @@
   - https://dev.classmethod.jp/articles/github-mac-terminal-ssh-login/
 
 ```
-
 $ xcode-select --install
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ echo 'export GOPATH=$HOME/.go' >> ~/.zshenv
@@ -83,6 +82,9 @@ $ git remote set-url origin git@github.com:okbm/dotfiles.git
 ```
 $ cd vscode
 $ ./installExtensions.sh
+
+# settings.jsonのcopy
+$ cp ~/Library/Application\ Support/Code/User/settings.json ~/.ghq/github.com/okbm/dotfiles/vscode
 ```
 
 ## memo

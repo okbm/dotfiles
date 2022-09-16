@@ -54,11 +54,15 @@
   "[php]": {
       "editor.tabSize": 4
   },
-  "ruby.intellisense": "rubyLocate",
-  "ruby.codeCompletion": "rcodetools",
-  "ruby.lint": {
-      "ruby": true
-  },
+  "[go]": {
+      "editor.tabSize": 4,
+      "editor.insertSpaces": true,
+      "editor.snippetSuggestions": "none",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+          "source.organizeImports": true
+      },
+},
   "javascript.updateImportsOnFileMove.enabled": "always",
   "workbench.colorTheme": "Night Owl (No Italics)",
   "php.validate.executablePath": "",
@@ -115,4 +119,6 @@
   "workbench.editor.enablePreview": false,
   "git.autofetch": true,
   "workbench.startupEditor": "none",
+  "bracketPairColorizer.depreciation-notice": false,
+  "editor.renderWhitespace": "boundary",
 }
