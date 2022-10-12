@@ -1,14 +1,13 @@
 bmewburn.vscode-intelephense-client
-CoenraadS.bracket-pair-colorizer
 cpmcgrath.codealignment-vscode
 donjayamanne.githistory
 eamodio.gitlens
-felixfbecker.php-intellisense
 golang.go
 janisdd.vscode-edit-csv
-jcbuisson.vue
 mhutchie.git-graph
+ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
+ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 octref.vetur
@@ -20,5 +19,6 @@ sdras.night-owl
 shardulm94.trailing-spaces
 streetsidesoftware.code-spell-checker
 vscodevim.vim
+Vue.volar
 wingrunr21.vscode-ruby
 xdebug.php-debug

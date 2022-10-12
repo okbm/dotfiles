@@ -87,6 +87,12 @@ $ ./installExtensions.sh
 $ cp ~/Library/Application\ Support/Code/User/settings.json ~/.ghq/github.com/okbm/dotfiles/vscode
 ```
 
+hjklで押しっぱなしで移動できない場合は以下を入力
+```
+$ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+$ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+```
+
 ## memo
 - go周りあとで見直したほうがいいかも
   - brew install --HEAD goenv
