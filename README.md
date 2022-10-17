@@ -7,16 +7,16 @@
 
 ```
 $ xcode-select --install
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ echo 'export GOPATH=$HOME/.go' >> ~/.zshenv
 $ echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.zshenv
 $ brew install go
+$ brew install ghq
 $ zsh
 $ mkdir -p ~/.go/src
 $ mkdir .ghq
 $ curl -O https://raw.githubusercontent.com/okbm/dotfiles/master/.gitconfig >> ~/.gitconfig
 
-$ go get github.com/x-motemen/ghq
 $ ghq get okbm/dotfiles
 $ cd .ghq/github.com/okbm/dotfiles
 ```
@@ -25,10 +25,6 @@ $ cd .ghq/github.com/okbm/dotfiles
 
 ```
 $ sh bootstrap.sh
-
-$ rbenv install 3.0.1
-$ rbenv global 3.0.1
-$ sudo gem install tmuxinator
 ```
 
 ## node
@@ -40,17 +36,14 @@ $ nodebrew use latest
 ```
 
 
-## ohter
+## その他macの設定
 
-- brewが動かない
-  - `brew doctor` で確認
 - 日本語入力の切り替え
   - キーボード -> ショートカットから入力ソースとspotrightを入れ替える
   - 前の入力ソースを表示と次のソースを表示をcmd + スペースにする
 - デュアルモニタ時にalfredがアクティブなモニタじゃなくてMac側にしか表示されない
   - 「Appearance」タブの左下にある「Options」からShow Alfred onをactiveに変更
 - Gmailのキーボードショートカットを有効にして、dを削除に割り当てる
-- 外部キーボードのキーを変更。capsをcntに。cntとoptをcmdに
 - マジックマウスを1本指でページ送りできるように
 - ディスプレイの照明を自動調整解除
 - フォント
@@ -60,6 +53,14 @@ $ nodebrew use latest
 - 初回起動
   - clipy
   - alfred
+- https://www.too.com/support/faq/mac/22467.html
+- Spotlightのショートカットをやめる
+- 日本語切り替えのショートカットをcmd + spaceに
+- 外部キーボードのキーを変更。capsをcntに。cntとoptをcmdに
+- alfredの入力をcontrol + space
+- cmd + ` でウインドウ切り替えをする
+  - システム設定 → キーボード → ショートカット→次のウィンドウを操作対象にする
+  - https://qiita.com/Yinaura/items/10fe5fe0cb0a795a0f58
 
 # github関係
 
@@ -87,16 +88,9 @@ $ ./installExtensions.sh
 $ cp ~/Library/Application\ Support/Code/User/settings.json ~/.ghq/github.com/okbm/dotfiles/vscode
 ```
 
-hjklで押しっぱなしで移動できない場合は以下を入力
+vscodeでhjklで押しっぱなしで移動できない場合は以下を入力
+
 ```
 $ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 $ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 ```
-
-## memo
-- go周りあとで見直したほうがいいかも
-  - brew install --HEAD goenv
-  - brew uninstall go
-  - goenv install 1.13.6
-  - goenv local 1.13.6
-
