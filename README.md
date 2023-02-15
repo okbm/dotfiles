@@ -96,7 +96,10 @@ $ ./installExtensions.sh
 $ cp ~/Library/Application\ Support/Code/User/settings.json ~/.ghq/github.com/okbm/dotfiles/vscode
 ```
 
-Color Theme > Night Owl
+## 設定
+
+- Color Theme > Night Owl
+- 拡張機能からvimを有効に
 
 vscodeでhjklで押しっぱなしで移動できない場合は以下を入力
 
