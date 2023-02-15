@@ -7,7 +7,7 @@
 
 ```
 $ xcode-select --install
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 $ echo 'export GOPATH=$HOME/.go' >> ~/.zshenv
 $ echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.zshenv
 $ brew install go
