@@ -61,9 +61,6 @@ $ nodebrew use latest
   - 入力をcontrol + space
   - デュアルモニタ時にalfredがアクティブなモニタじゃなくてMac側にしか表示されない
   - 「Appearance」タブの左下にある「Options」からShow Alfred onをactiveに変更
-- ディスプレイの照明を自動調整解除
-- iterm
-  - setting -> profile -> color -> "solarized dark" にする
 - shiftlt
   - 右半分と左半分と全画面だけでもやる
 - Gmailのキーボードショートカットを有効にして、dを削除に割り当てる(これはいらないかも)
@@ -89,6 +86,8 @@ $ git remote set-url origin git@github.com:okbm/dotfiles.git
 
 `code --list-extensions` で現在インストール済みの拡張を出す
 
+code commandを使うためには vscodeを起動して、cmd + shift + Pで表示される窓にshellと入力してcode commandをinstallする
+
 ```
 $ cd vscode
 $ ./installExtensions.sh
@@ -102,4 +101,13 @@ vscodeでhjklで押しっぱなしで移動できない場合は以下を入力
 ```
 $ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 $ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+```
+
+# vimやitermの設定
+
+```
+$ vim
+
+vim 上で :call dein#install()
+
 ```
