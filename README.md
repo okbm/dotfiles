@@ -42,13 +42,15 @@ $ nodebrew use latest
 - マジックマウスを1本指でページ送りできるように
 
 ### キーボード周り
+- google日本語入力を有効にする(先にPC再起動したほうがいいかも)
+- Spotlightのショートカットをやめる
 - 日本語入力の切り替え
   - キーボード -> ショートカットから入力ソースとspotrightを入れ替える
   - 前の入力ソースを表示と次のソースを表示をcmd + スペースにする
-- Spotlightのショートカットをやめる
-- 日本語切り替えのショートカットをcmd + spaceに
 - 外部キーボードのキーを変更。capsをcntに。cntとoptをcmdに
 - cmd + ` でウインドウ切り替えをする
+
+<img width="684" alt="スクリーンショット 2023-02-15 15 25 35" src="https://user-images.githubusercontent.com/988486/218949336-f02e1b85-2d7d-45cc-bf30-2c04b45b7169.png">
 
 <img width="665" alt="スクリーンショット 2023-02-15 15 20 04" src="https://user-images.githubusercontent.com/988486/218948387-7e24f007-8aa5-4533-87c2-3c0c4b3ecc4e.png">
 
