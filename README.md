@@ -56,6 +56,7 @@ $ nodebrew use latest
 
 
 ### アプリ周り
+
 - alfred
   - 入力をcontrol + space
   - デュアルモニタ時にalfredがアクティブなモニタじゃなくてMac側にしか表示されない
@@ -66,11 +67,9 @@ $ nodebrew use latest
 - shiftlt
   - 右半分と左半分と全画面だけでもやる
 - Gmailのキーボードショートカットを有効にして、dを削除に割り当てる(これはいらないかも)
-
 - 初回起動
   - clipy
   - alfred
-- https://www.too.com/support/faq/mac/22467.html
 
 # github関係
 
