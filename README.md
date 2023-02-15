@@ -48,21 +48,22 @@ $ nodebrew use latest
 - Spotlightのショートカットをやめる
 - 日本語切り替えのショートカットをcmd + spaceに
 - 外部キーボードのキーを変更。capsをcntに。cntとoptをcmdに
-- alfredの入力をcontrol + space
 - cmd + ` でウインドウ切り替えをする
-  - システム設定 → キーボード → ショートカット→次のウィンドウを操作対象にする
-  - https://qiita.com/Yinaura/items/10fe5fe0cb0a795a0f58
+
+<img width="665" alt="スクリーンショット 2023-02-15 15 20 04" src="https://user-images.githubusercontent.com/988486/218948387-7e24f007-8aa5-4533-87c2-3c0c4b3ecc4e.png">
+
 
 ### アプリ周り
-- デュアルモニタ時にalfredがアクティブなモニタじゃなくてMac側にしか表示されない
+- alfred
+  - 入力をcontrol + space
+  - デュアルモニタ時にalfredがアクティブなモニタじゃなくてMac側にしか表示されない
   - 「Appearance」タブの左下にある「Options」からShow Alfred onをactiveに変更
-- Gmailのキーボードショートカットを有効にして、dを削除に割り当てる
 - ディスプレイの照明を自動調整解除
 - iterm
   - setting -> profile -> color -> "solarized dark" にする
 - shiftlt
   - 右半分と左半分と全画面だけでもやる
-
+- Gmailのキーボードショートカットを有効にして、dを削除に割り当てる(これはいらないかも)
 
 - 初回起動
   - clipy
