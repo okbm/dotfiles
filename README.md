@@ -96,6 +96,8 @@ $ ./installExtensions.sh
 $ cp ~/Library/Application\ Support/Code/User/settings.json ~/.ghq/github.com/okbm/dotfiles/vscode
 ```
 
+Color Theme > Night Owl
+
 vscodeでhjklで押しっぱなしで移動できない場合は以下を入力
 
 ```
