@@ -38,22 +38,13 @@ $ nodebrew use latest
 
 ## その他macの設定
 
+- dockの設定等は https://github.com/okbm/dotfiles/blob/master/mac.config 
+- マジックマウスを1本指でページ送りできるように
+
+### キーボード周り
 - 日本語入力の切り替え
   - キーボード -> ショートカットから入力ソースとspotrightを入れ替える
   - 前の入力ソースを表示と次のソースを表示をcmd + スペースにする
-- デュアルモニタ時にalfredがアクティブなモニタじゃなくてMac側にしか表示されない
-  - 「Appearance」タブの左下にある「Options」からShow Alfred onをactiveに変更
-- Gmailのキーボードショートカットを有効にして、dを削除に割り当てる
-- マジックマウスを1本指でページ送りできるように
-- ディスプレイの照明を自動調整解除
-- フォント
-  - https://github.com/edihbrandon/RictyDiminished
-- iterm
-  - setting -> profile -> color -> "solarized dark" にする
-- 初回起動
-  - clipy
-  - alfred
-- https://www.too.com/support/faq/mac/22467.html
 - Spotlightのショートカットをやめる
 - 日本語切り替えのショートカットをcmd + spaceに
 - 外部キーボードのキーを変更。capsをcntに。cntとoptをcmdに
@@ -61,6 +52,22 @@ $ nodebrew use latest
 - cmd + ` でウインドウ切り替えをする
   - システム設定 → キーボード → ショートカット→次のウィンドウを操作対象にする
   - https://qiita.com/Yinaura/items/10fe5fe0cb0a795a0f58
+
+### アプリ周り
+- デュアルモニタ時にalfredがアクティブなモニタじゃなくてMac側にしか表示されない
+  - 「Appearance」タブの左下にある「Options」からShow Alfred onをactiveに変更
+- Gmailのキーボードショートカットを有効にして、dを削除に割り当てる
+- ディスプレイの照明を自動調整解除
+- iterm
+  - setting -> profile -> color -> "solarized dark" にする
+- shiftlt
+  - 右半分と左半分と全画面だけでもやる
+
+
+- 初回起動
+  - clipy
+  - alfred
+- https://www.too.com/support/faq/mac/22467.html
 
 # github関係
 
