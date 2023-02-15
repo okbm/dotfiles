@@ -93,7 +93,7 @@ $ cd vscode
 $ ./installExtensions.sh
 
 # settings.jsonのcopy
-$ cp ~/Library/Application\ Support/Code/User/settings.json ~/.ghq/github.com/okbm/dotfiles/vscode
+$ cp ~/.ghq/github.com/okbm/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json 
 ```
 
 ## 設定
