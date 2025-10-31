@@ -1,8 +1,71 @@
 {
+  "window.zoomLevel": 1,
   "workbench.sideBar.location": "left",
+  "workbench.list.defaultFindMode": "highlight",
+  "workbench.list.typeNavigationMode": "automatic",
+  "workbench.list.automaticKeyboardNavigation": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.startupEditor": "none",
+
+  // テーマ
+  "workbench.colorTheme": "GitHub Dark",
+  "editor.tokenColorCustomizations": {
+    "[Night Owl (No Italics)]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "entity.name.function",
+            "support.function",
+            "meta.function-call.go"
+          ],
+          "settings": {
+            "foreground": "#82AAFF" // 関数名の色
+          }
+        },
+        {
+          "scope": [
+            "variable",
+            "variable.other.readwrite.go",
+          ],
+          "settings": {
+            "foreground": "#aee189" // 変数名の色
+          }
+        }
+      ]
+    }
+  },
+
+  "application.shellEnvironmentResolutionTimeout": 100,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
+  "redhat.telemetry.enabled": true,
+  "update.showReleaseNotes": false,
+
 
   // ミニマップは非表示
+  "editor.fontSize": 14,
   "editor.minimap.enabled": false,
+  "editor.tabCompletion": "on",
+  "editor.detectIndentation": false,
+  "editor.cursorStyle": "line",
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": false,
+  // "editor.fontFamily": "Source Han Code JP, monospace",
+  "editor.fontFamily": "JetBrains Mono, Menlo, monospace",
+  "editor.inlineSuggest.enabled": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.experimentalEditContextEnabled": false,
+  "editor.editContext": false, // vim 日本語問題
+  "editor.accessibilitySupport": "off",
+  // 目に優しい設定
+  "editor.lineHeight": 1.6,
+  "editor.cursorBlinking": "solid",
+  "editor.smoothScrolling": true,
+
   // vimの設定
   // jjでノーマルモードに入る
   "vim.insertModeKeyBindings": [
@@ -17,6 +80,7 @@
   "vim.useCtrlKeys": true,
   "vim.useSystemClipboard": true,
   "vim.statusBarColorControl": false,
+  "vim.visualModeKeyBindingsNonRecursive": [],
   "vim.normalModeKeyBindingsNonRecursive": [
     // ノーマルモードのときにxキー、sキーで削除した文字をヤンクしない
     {
@@ -39,11 +103,24 @@
   // "editor.quickSuggestions": false,
   // "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?_-、。「」【】『』（）！？　てにをはがのともへでや",
 
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-
+  "[markdown]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+  },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
   "[js]": {
       "editor.tabSize": 2
+  },
+  "[typescript]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+  },
+  "[typescriptreact]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
   },
   "[vue]": {
       "editor.tabSize": 2
@@ -56,18 +133,68 @@
   },
   "[go]": {
       "editor.tabSize": 4,
-      "editor.insertSpaces": true,
+      "editor.insertSpaces": false,
       "editor.snippetSuggestions": "none",
       "editor.formatOnSave": true,
       "editor.codeActionsOnSave": {
-          "source.organizeImports": true
+        "source.organizeImports": "explicit"
       },
-},
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "go.alternateTools": {
+    "go-langserver": "gopls"
+  },
+  // For gopls
+  // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+  "gopls": {
+    "hoverKind": "SynopsisDocumentation",
+    "usePlaceholders": true,
+    "linkTarget": "pkg.go.dev",
+    "staticcheck": false,
+    "completionDocumentation": true,
+    "completeUnimported": true,
+    "deepCompletion": true
+  },
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "workbench.colorTheme": "Night Owl (No Italics)",
   "php.validate.executablePath": "",
-  "editor.tabCompletion": "on",
-  "editor.detectIndentation": false,
+  "accessibility.signalOptions.volume": 70,
+  "accessibility.signalOptions.experimental.delays.general": {
+    "announcement": 3000,
+    "sound": 400
+  },
+  "accessibility.signalOptions.experimental.delays.errorAtPosition": {
+    "announcement": 3000,
+    "sound": 1000
+  },
+  "accessibility.signalOptions.experimental.delays.warningAtPosition": {
+    "announcement": 3000,
+    "sound": 1000
+  },
+  // git
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "never",
+  "github.copilot.selectedCompletionModel": "",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+
+  // 過去に有効で現在無効の設定
+  "docker.extension.enableComposeLanguageServer": false,
+  "docker.extension.dockerEngineAvailabilityPrompt": false,
   "alignment.chars": {
     ":": {
       "spaceBefore": 0,
@@ -110,15 +237,6 @@
       "spaceAfter": 1
     }
   },
-  "extensions.ignoreRecommendations": true,
-  "editor.cursorStyle": "line",
-  "editor.lineNumbers": "on",
-  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.wordWrap": "off",
-  "editor.tabSize": 2,
-  "workbench.editor.enablePreview": false,
-  "git.autofetch": true,
-  "workbench.startupEditor": "none",
-  "bracketPairColorizer.depreciation-notice": false,
-  "editor.renderWhitespace": "boundary",
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
 }
